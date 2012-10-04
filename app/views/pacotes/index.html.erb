@@ -1,0 +1,25 @@
+<h1>Pacotes</h1>
+
+<%= link_to 'Novo Pacote', new_pacote_path %>
+<br>
+<table class='lista_registros'>
+  <thead>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @pacotes.each do |pacote| %>
+      <tr>
+        <td><%= link_to pacote.nome, pacote %></td>
+  	    <td width='16'><%= link_to image_tag('editar.png'), edit_pacote_path(pacote) %></td>
+  	    <td width='16'><%= link_to image_tag('excluir.png'), pacote, confirm: 'Você tem certeza?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo Pacote', new_pacote_path %>

@@ -1,0 +1,36 @@
+<fieldset>
+<legend>Filtros</legend>
+<%= form_for(:filtros,url:{action: :index}) do |f| %>
+
+  <div style='float:left;'>
+    
+		<b>#:    </b> <%= f.text_field(:id, :size => 3,    :value => @filtrou[:id]) %>
+		<b>Nome: </b> <%= f.text_field(:nome, :size => 60, :value => @filtrou[:nome]) %>	
+		
+		<div style='float:right;'>
+		  <b style='float:left'>Pacotes:</b>
+		  <%= select_tag('filtros[pacotes]',options_from_collection_for_select(@pacotes, 'id', 'nome', @filtrou[:pacotes]), { multiple: true, class: 'teste', size: 5}) %>
+		</div>
+
+		<br>
+		
+		<div>
+			<b style='float:left'> Situações: </b>
+			
+			<% Historia::SITUACOES.each do |codigo,nome| %>
+			
+				<div class='filtro_historia cor_historia_<%= nome %>'>
+					<label for="filtros_situacao_<%= codigo %>">
+						<%= check_box_tag("filtros[situacao][#{codigo}]",true,@filtrou[:situacao].keys.include?(codigo.to_s)) %> <%= nome.to_s.humanize %>
+					</label>
+				</div>					
+				
+			<% end %>
+		</div>
+
+    <%= f.submit('Filtrar') %>
+	  <%= link_to('limpar',action: :index) %>		  
+
+  </div>
+<% end %>
+</fieldset>

@@ -1,0 +1,11 @@
+<h1> Lista completa de histórias </h1>
+
+<br>
+<%= render'filtros' %>
+<br>
+
+<%= render('sumario_lista') %>
+<hr style='clear:both'>
+<%= render(partial: 'exibe_uma_historia', collection: @historias, as: :historia) %>
+
+<%= render('sumario_lista') %>

@@ -1,0 +1,26 @@
+<h1>Projetos</h1>
+
+<table class='lista_registros'>
+  <thead>
+		<th>#</th>
+		<th>Nome</th>
+    <th></th><th></th><th></th>
+  </thead>
+
+	<tbody>
+		
+	<% @projetos.each do |projeto| %>
+	  <tr>
+			<td><%= projeto.id %></td>
+			<td><%= projeto.nome %></td>
+	    <td width='16'><%= link_to image_tag('exibir.png'), projeto %></td>
+	    <td width='16'><%= link_to image_tag('editar.png'), edit_projeto_path(projeto) %></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), projeto, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo Projeto', new_projeto_path %>

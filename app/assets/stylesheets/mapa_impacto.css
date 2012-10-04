@@ -1,0 +1,51 @@
+.tabela_mapa_impacto{
+	border-spacing: 0px;
+	border-padding: 0px;
+}
+
+.tabela_mapa_impacto td{
+	padding: 0px;
+}
+
+.tabela_mapa_impacto a{
+	text-decoration: none;
+}
+
+.tabela_mapa_impacto a:hover{
+	text-decoration: underline;
+}
+
+.tabela_mapa_impacto th{
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+.tabela_mapa_impacto td{
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+
+.tabela_mapa_impacto td div{
+	font-size: 60%;
+	padding: 1px 2px 0px 2px;
+}
+
+.tabela_mapa_impacto .ignora{
+	background-color: #D9D9D9;
+	height: 22px;
+}
+
+.tabela_mapa_impacto .relacao_forte{
+	background-color: red;
+	height: 22px;
+	color:white;
+}
+
+.tabela_mapa_impacto .relacao_fraca{
+	background-color: yellow;
+	height: 22px;
+}
+
+.tabela_mapa_impacto tr:hover{
+	background-color:#EFEFEF;
+}
+

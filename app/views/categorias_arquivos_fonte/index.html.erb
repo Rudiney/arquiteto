@@ -1,0 +1,29 @@
+<h1>Categorias dos Arquivos Fonte</h1>
+
+<%= link_to 'Nova Categoria', new_categoria_arquivo_fonte_path %> <br><br>
+
+<table class='lista_registros'>
+  <thead>
+		<th>Nome</th>
+		<th>Expressão Regular</th>
+		
+    <th></th><th></th><th></th>
+  </thead>
+
+	<tbody>
+		
+	<% @caregorias_arquivos_fonte.each do |caf| %>
+	  <tr>
+			<td><%= link_to(caf.nome_exibicao,caf) %></td>
+			<td><%= caf.string_expressao_regular %></td>
+
+	    <td width='16'><%= link_to image_tag('editar.png'), edit_categoria_arquivo_fonte_path(caf) %></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), caf, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nova Categoria', new_categoria_arquivo_fonte_path %>

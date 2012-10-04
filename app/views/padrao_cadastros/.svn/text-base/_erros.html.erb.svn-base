@@ -1,0 +1,11 @@
+<% if registro.errors.any? %>
+  <div id="error_explanation">
+    <h2> Ocorreram <%= pluralize(registro.errors.count, "erros") %>:</h2>
+
+    <ul>
+    <% registro.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

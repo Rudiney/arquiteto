@@ -1,0 +1,87 @@
+10
+
+dir
+51
+svn://rudiney@192.168.1.200/segundo_arquiteto/trunk/app/views
+svn://rudiney@192.168.1.200
+
+
+
+2012-03-21T10:32:28.470909Z
+51
+rudiney
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+113f2074-178a-11e1-b6e7-65d7a8a8d47c
+
+produtos
+dir
+
+escolha_um_projeto
+dir
+
+
+
+delete
+
+tarefas
+dir
+
+funcionalidades
+dir
+
+funcionalidade_historias
+dir
+
+escolha_um_produto
+dir
+
+pacotes
+dir
+
+historia_anexos
+dir
+
+layouts
+dir
+
+lista_historias
+dir
+
+backlog
+dir
+
+categorias_arquivos_fonte
+dir
+
+historias
+dir
+
+projetos
+dir
+
+
+
+delete
+
+padrao_cadastros
+dir
+
+repositorio
+dir
+
+relacao_funcionalidades
+dir
+

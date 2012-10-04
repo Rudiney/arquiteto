@@ -1,0 +1,12 @@
+<%= form_for(@historia, 
+	remote: true,
+	url:{
+		controller: :funcionalidade_historias,
+		action: :novo,
+		entre: @historia.id
+ 	}) do |f| %>
+
+	Adicionar Funcionalidade
+	<%= select('', :e, @historia.funcionalidades_nao_relacionadas.map{|f| [f.nome_exibicao, f.id]},{}) %>
+	<%= f.submit 'Salvar' %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1> Categoria de Arquivo Fonte</h1>
+
+<p id="notice"><%= notice %></p><br>
+
+<h2><%= @categoria_arquivo_fonte.nome_exibicao %> </h2>
+<br>
+
+<p>
+  <b>Expressão Regular:</b><br>
+	<%= @categoria_arquivo_fonte.string_expressao_regular %>
+</p>
+
+<br>
+	<hr>
+<br>
+<div id="arquivos_fonte">
+	<%= render 'arquivos_fonte' %>
+</div>
+
+<br>
+<%= link_to 'Editar', edit_categoria_arquivo_fonte_path(@categoria_arquivo_fonte) %> |
+<%= link_to 'Voltar', categorias_arquivos_fonte_path %>

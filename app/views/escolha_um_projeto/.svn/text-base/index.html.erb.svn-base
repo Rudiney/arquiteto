@@ -1,0 +1,20 @@
+<% if @projetos.empty? %>
+	Não existe nenhum projeto no arquiteto
+<% else %>
+	Escolha 1 dos projetos abaixo para trabalhar:
+	<ul>
+		
+		<% @projetos.each do |projeto| %>
+		
+			<li><%= link_to projeto.nome, :action => :escolhido, :id => projeto %></li>
+			
+		<% end %>
+		
+	</ul>	
+<% end %>
+
+<br>
+
+Caso deseja criar um novo projeto, <%= link_to 'clique aqui', new_projeto_path %>
+
+

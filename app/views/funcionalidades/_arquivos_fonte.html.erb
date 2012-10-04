@@ -1,0 +1,54 @@
+<%= image_tag('arquivo_fonte.png') %>
+<b>Arquivos Fonte (<%= @funcionalidade.arquivos_fonte.size %>):</b>
+<br>
+
+<table class='lista_relacionamento' style='padding-left:16px'>
+	<tbody>
+		
+		<% @funcionalidade.arquivos_fonte_agrupados_por_categoria.each do |categoria, arquivos_fonte| 
+			next if categoria.nil?
+		%>
+			<tr>
+				<td style='font-weight: bold; font-size:12px;'>
+					<%= categoria.nome %> (<%= arquivos_fonte.size %>)
+				</td><td></td>
+			</tr>
+		
+			<% arquivos_fonte.sort{|a,b| a.caminho_completo <=> b.caminho_completo}.each do |af| %>
+				<tr>
+				
+					<td style='padding-left:15px'><%= af.caminho_completo %></td>
+				
+					<td  title='O arquivo fonte também foi alterado por outras funcionalidades.'>
+						<%= (af.funcionalidades.collect(&:id) - [@funcionalidade.id]).join(',') %>
+					</td>
+				</tr>
+			
+			<% end %>
+
+		<% end %>
+
+		<% unless @funcionalidade.arquivos_fonte_agrupados_por_categoria[nil].blank? 
+			arquivos_fonte = @funcionalidade.arquivos_fonte_agrupados_por_categoria[nil] %>
+			
+			<tr>
+				<td style='font-weight: bold; font-size:12px; color:grey;'>
+					<i>Sem categoria</i> (<%= arquivos_fonte.size %>)
+				</td><td></td>
+			</tr>
+			
+			<% arquivos_fonte.sort{|a,b| a.caminho_completo <=> b.caminho_completo}.each do |af| %>
+				<tr>
+
+					<td style='padding-left:15px'><%= af.caminho_completo %></td>
+
+					<td  title='O arquivo fonte também foi alterado por outras funcionalidades.'>
+						<%= (af.funcionalidades.collect(&:id) - [@funcionalidade.id]).join(',') %>
+					</td>
+				</tr>
+
+			<% end %>
+		<% end %>
+
+	</tbody>
+</table>

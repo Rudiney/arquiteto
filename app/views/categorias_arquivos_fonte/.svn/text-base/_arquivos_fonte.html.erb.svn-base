@@ -1,0 +1,18 @@
+<table class='lista_relacionamento'>
+	<tbody>
+		<tr>
+			<td>
+				<%= image_tag('arquivo_fonte.png') %>
+				<b>Arquivos Fonte (<%= @categoria_arquivo_fonte.arquivos_fonte.size %>):</b>
+				<br>
+			</td>
+		</tr>
+		
+		<% @categoria_arquivo_fonte.arquivos_fonte.sort{|a,b| a.caminho_completo <=> b.caminho_completo}.each do |af| %>
+			<tr>
+				<td><%= af.caminho_completo %></td>
+			</tr>
+		<% end %>
+				
+	</tbody>
+</table>

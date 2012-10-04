@@ -1,0 +1,46 @@
+10
+
+dir
+51
+svn://rudiney@192.168.1.200/segundo_arquiteto/trunk/app
+svn://rudiney@192.168.1.200
+
+
+
+2012-03-21T10:32:28.470909Z
+51
+rudiney
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+113f2074-178a-11e1-b6e7-65d7a8a8d47c
+
+assets
+dir
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+mailers
+dir
+
+views
+dir
+

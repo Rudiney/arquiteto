@@ -1,0 +1,68 @@
+<% 2.times do |p|
+produto = p+1
+20.times do |h| 
+historia = h+1 %>
+
+fixture_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>11
+  tarefa_id: <%= produto %><%= historia %>1
+  arquivo_fonte_id: <%= produto %><%= historia %>11
+
+teste_unitario_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>12
+  tarefa_id: <%= produto %><%= historia %>1
+  arquivo_fonte_id: <%= produto %><%= historia %>12
+
+teste_funcional_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>13
+  tarefa_id: <%= produto %><%= historia %>1
+  arquivo_fonte_id: <%= produto %><%= historia %>13
+
+modelo_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>21
+  tarefa_id: <%= produto %><%= historia %>2
+  arquivo_fonte_id: <%= produto %><%= historia %>21
+
+controller_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>22
+  tarefa_id: <%= produto %><%= historia %>2
+  arquivo_fonte_id: <%= produto %><%= historia %>22
+
+tela_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>23
+  tarefa_id: <%= produto %><%= historia %>2
+  arquivo_fonte_id: <%= produto %><%= historia %>23
+
+documentacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>41
+  tarefa_id: <%= produto %><%= historia %>4
+  arquivo_fonte_id: <%= produto %><%= historia %>41
+
+<% end %>
+<% end %>
+
+
+#
+#               Impactos técnicos
+#
+
+<% 2.times do |p|
+produto = p+1
+15.times do |h| 
+historia_um = h+1
+historia_dois = historia_um+4 
+%>
+
+arquivo_comum_da_historia_<%= historia_um.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia_um %>66
+  tarefa_id: <%= produto %><%= historia_um %>3
+  arquivo_fonte_id: <%= produto %><%= historia_um %>66
+
+
+arquivo_comum_da_historia_<%= historia_dois.por_extenso %>_produto_<%= produto.por_extenso %>:
+ id: <%= produto %><%= historia_dois %>67
+ tarefa_id: <%= produto %><%= historia_dois %>3
+ arquivo_fonte_id: <%= produto %><%= historia_um %>66
+
+<% end %>
+<% end %>

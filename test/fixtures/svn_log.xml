@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<log>
+	<logentry revision="3537">
+		<author>eduardo</author>
+		<date>2011-12-15T16:18:23.576519Z</date>
+		<paths>
+			<path kind="file" action="M">/branch/sprint27/app/models/classificacao_fiscal.rb</path>
+		</paths>
+		<msg>Campo descrição é obrigatório</msg>
+	</logentry>
+	<logentry revision="3536">
+		<author>eduardo</author>
+		<date>2011-12-15T15:58:43.301326Z</date>
+		<paths>
+			<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos.rb</path>
+			<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/datas.rb</path>
+			<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos_data.rb</path>
+			<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/numericos.rb</path>
+			<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/componentes_formulario.rb</path>
+		</paths>
+		<msg>Formatado campo informaçao</msg>
+	</logentry>
+	<logentry revision="3535">
+		<author>eduardo</author>
+		<date>2011-12-15T15:46:56.939997Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/views/programas/_web.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/configura_atributos/_campos_formulario.html.erb</path>
+	</paths>
+	<msg>Ajustado elemento editor. Removido parametro</msg>
+	</logentry>
+	<logentry revision="3534">
+		<author>felipe</author>
+		<date>2011-12-15T13:58:37.605487Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos.rb</path>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/componentes_formulario.rb</path>
+	</paths>
+	<msg>Corrigido bug no componente area_texto quando havia quebras de linha.</msg>
+	</logentry>
+	<logentry revision="3533">
+		<author>felipe</author>
+		<date>2011-12-15T13:52:55.407468Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos.rb</path>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/componentes_formulario.rb</path>
+	</paths>
+	<msg>Corrigido bug ao editar registros que possuiam valor null para o editor.</msg>
+	</logentry>
+	<logentry revision="3532">
+		<author>felipe</author>
+		<date>2011-12-15T13:29:24.171928Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/models/ajuda_programa.rb</path>
+	</paths>
+	<msg>Corrigido bug de codificação ao utilizar o editor.</msg>
+	</logentry>
+	<logentry revision="3531">
+		<author>felipe</author>
+		<date>2011-12-15T13:25:10.961409Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos.rb</path>
+	<path kind="file" action="M">/branch/sprint27/public/javascripts/desktop/overrides.js</path>
+	<path kind="file" action="M">/branch/sprint27/app/controllers/application_controller.rb</path>
+	<path kind="file" action="M">/branch/sprint27/app/models/configura_atributos.rb</path>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/componentes_formulario.rb</path>
+	</paths>
+	<msg>Corrigido bug de codificação ao utilizar o editor.</msg>
+	</logentry>
+	<logentry revision="3530">
+		<author>eduardo</author>
+		<date>2011-12-15T12:18:21.815581Z</date>
+	<paths>
+	<path kind="file" action="A">/branch/sprint27/app/views/classificacoes_fiscais/new.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/desktop/mensagens.html.erb</path>
+	<path kind="file" action="A">/branch/sprint27/app/views/classificacoes_fiscais/show.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/classificacoes_fiscais/_campos_formulario.html.erb</path>
+	<path kind="file" action="A">/branch/sprint27/app/views/classificacoes_fiscais/delete.html.erb</path>
+	<path kind="file" action="A">/branch/sprint27/app/views/classificacoes_fiscais/edit.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/models/classificacao_fiscal.rb</path>
+	</paths>
+	<msg>[h:165, t:3] Criado cadastro de Classificação fiscal e corrigido retorno de mensagem de erro.</msg>
+	</logentry>
+	<logentry revision="3529">
+		<author>daiani</author>
+		<date>2011-12-15T11:53:24.451721Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/_campos_formulario.html.erb</path>
+	</paths>
+	<msg>Removido espaços adicionais no código</msg>
+	</logentry>
+	<logentry revision="3528">
+		<author>daiani</author>
+		<date>2011-12-15T11:52:17.917993Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/models/origem_mercadoria.rb</path>
+	</paths>
+	<msg>Removido comentários adicionais criados pelo crud</msg>
+	</logentry>
+	<logentry revision="3527">
+		<author>daiani</author>
+		<date>2011-12-15T11:48:52.834976Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/controllers/localizacoes_produtos_controller.rb</path>
+	</paths>
+	<msg>[h:165; t:2] Criado cadastro de locais de estocagem</msg>
+	</logentry>
+	<logentry revision="3526">
+		<author>daiani</author>
+		<date>2011-12-15T11:48:11.431440Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/models/localizacao_produto.rb</path>
+	</paths>
+	<msg>[h:165; t:2] Criado cadastro de locais de estocagem</msg>
+	</logentry>
+	<logentry revision="3525">
+		<author>daiani</author>
+		<date>2011-12-15T11:47:16.883047Z</date>
+	<paths>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/_campos_formulario.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/_campos_formulario.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/show.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/show.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/_filtros.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/_filtros.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/delete.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/delete.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/edit.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/edit.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/index.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/index.html.erb</path>
+	<path kind="file" action="D">/branch/sprint27/app/views/localizacoes_produtos/_campos_visualizacao_registro.html.erb</path>
+	<path kind="file"
+	   copyfrom-path="/branch/sprint27/app/views/tipos_estoque/new.html.erb"
+	   copyfrom-rev="3523" action="R">/branch/sprint27/app/views/localizacoes_produtos/new.html.erb</path>
+	</paths>
+	<msg>[h:165; t:2] Criado cadastro de locais de estocagem</msg>
+	</logentry>
+	<logentry revision="3524">
+		<author>eduardo</author>
+		<date>2011-12-15T11:34:22.068967Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/edit.html.erb</path>
+	<path kind="file" action="D">/branch/sprint27/app/views/origens_mercadorias/_campos_visualizacao_registro.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/new.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/_campos_formulario.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/show.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/origens_mercadorias/delete.html.erb</path>
+	</paths>
+	<msg>[h:165, t:3] Criado cadastro de Origem do Produto</msg>
+	</logentry>
+	<logentry revision="3523">
+		<author>felipe</author>
+		<date>2011-12-15T11:21:51.757046Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/config/environments/production.rb</path>
+	</paths>
+	<msg>Alterado configuração do ambiente de produção para fazer cache das classes.</msg>
+	</logentry>
+	<logentry revision="3522">
+		<author>felipe</author>
+		<date>2011-12-15T11:20:06.111113Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/elementos.rb</path>
+	<path kind="file" action="M">/branch/sprint27/public/javascripts/desktop/overrides.js</path>
+	<path kind="dir" action="D">/branch/sprint27/public/ckeditor</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/desktop/index.rhtml</path>
+	<path kind="file" action="M">/branch/sprint27/public/javascripts/desktop/window.js</path>
+	<path kind="file" action="M">/branch/sprint27/config/environments/production.rb</path>
+	<path kind="file" action="M">/branch/sprint27/lib/formulario/componentes/componentes_formulario.rb</path>
+	</paths>
+	<msg>Alterado para usar o editor html do Ext.</msg>
+	</logentry>
+	<logentry revision="3521">
+		<author>eduardo</author>
+		<date>2011-12-15T11:09:37.865838Z</date>
+	<paths>
+	<path kind="file" action="M">/branch/sprint27/app/views/tipos_estoque/delete.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/tipos_estoque/edit.html.erb</path>
+	<path kind="file" action="D">/branch/sprint27/app/views/tipos_estoque/_campos_visualizacao_registro.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/tipos_estoque/new.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/tipos_estoque/_campos_formulario.html.erb</path>
+	<path kind="file" action="M">/branch/sprint27/app/views/tipos_estoque/show.html.erb</path>
+	</paths>
+	<msg>[h:165, t:1] Criado cadastro de tipo de estoque</msg>
+	</logentry>
+	<logentry revision="3520">
+		<author>daiani</author>
+		<date>2011-12-15T10:38:06.583317Z</date>
+	<paths>
+	<path kind="file" action="M">/trunk/app/relatorios/bin/r_comissao_montadores.jasper</path>
+	<path kind="file" action="M">/trunk/app/relatorios/src/r_comissao_montadores/r_comissao_montadores.jrxml</path>
+	</paths>
+	<msg>Alterado relatório de montadores conforme solicitação Robson. Alterado totalizador, adicionada colina com quantidade montada e altera quantidade de observações impressa na tela.</msg>
+	</logentry>
+	<logentry revision="3519">
+		<author>daiani</author>
+		<date>2011-12-15T10:34:52.033112Z</date>
+	<paths>
+	<path kind="file" action="M">/trunk/app/views/r_comissao_montadores/_xml_comissao_montadores.rxml</path>
+	</paths>
+	<msg>Alterado relatório para mostrar totais corretamente</msg>
+	</logentry>
+	<logentry revision="3518">
+		<author>daiani</author>
+		<date>2011-12-15T10:34:16.087657Z</date>
+	<paths>
+	<path kind="file" action="M">/trunk/app/controllers/r_comissao_montadores_controller.rb</path>
+	</paths>
+	<msg>Alterado relatório para mostrar totais corretamente</msg>
+	</logentry>
+</log>

@@ -1,0 +1,18 @@
+<%= image_tag('relacao_tecnica_funcionalidades.png') %>
+<b title='Um relacionamento técnico ocorre quando duas funcionalidades diferentes alteram o mesmo arquivo fonte.'>
+	Relacionamentos Técnicos (<%= @funcionalidade.funcionalidades_relacionadas_tecnicamente.size %>):</b>
+<br>
+
+<table class='lista_relacionamento'>
+	
+	<tbody>
+		
+		<% @funcionalidade.funcionalidades_relacionadas_tecnicamente.each do |f| %>
+			<tr>
+				<td><%= link_to(f.nome_exibicao, f) %></td>
+			</tr>
+		<% end %>		
+		
+	</tbody>
+	
+</table>

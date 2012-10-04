@@ -1,0 +1,8 @@
+<div style='color:red'>
+	<b>Ocorreu um erro na importação dos arquivos do repositório!</b><br>
+	<b>Erro:</b><%= truncate(@e.message, :length => 500) %><br>
+	<b>Log do Repositório: </b><%= @produto_escolhido.repositorio.log_xml %>
+	
+</div>
+
+<br>

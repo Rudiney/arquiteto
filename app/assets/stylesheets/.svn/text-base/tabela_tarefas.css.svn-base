@@ -1,0 +1,22 @@
+.tabela_tarefas{
+	border-spacing: 0px;
+	border-padding: 0px;
+	border: 1px solid #999;
+	margin-left: 5px;
+}
+
+.tabela_tarefas thead th{
+	background-color: #DDD;
+}
+
+.tabela_tarefas td{
+	padding: 0px 5px;
+}
+
+.tabela_tarefas tfoot td{
+	border-top: 1px solid #999;
+}
+
+.tabela_tarefas tbody tr:hover{
+	background-color: #EAEAEA;
+}

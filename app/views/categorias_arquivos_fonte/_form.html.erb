@@ -1,0 +1,21 @@
+<%= form_for(@categoria_arquivo_fonte) do |f| %>
+	
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @categoria_arquivo_fonte} %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :size => 70 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :string_expressao_regular, 'Expressão Regular' %><br />
+    <%= f.text_field :string_expressao_regular, :size => 200 %>
+		<div class='explicacao'>
+			Esta expressão regular será aplicada no caminho completo para categorizar os arquivos fonte.
+		</div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>

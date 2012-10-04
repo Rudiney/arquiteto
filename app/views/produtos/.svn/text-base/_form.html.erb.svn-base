@@ -1,0 +1,23 @@
+<%= form_for(@produto) do |f| %>
+
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @produto} %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url_base_wiki %><br />
+    <%= f.text_field :url_base_wiki %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao, rows: 10, cols: 100 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>

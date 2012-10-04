@@ -1,0 +1,11 @@
+<h1> Projeto <%= @projeto.id %></h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @projeto.nome %>
+</p>
+
+
+<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
+<%= link_to 'Back', projetos_path %>

@@ -1,0 +1,66 @@
+<h1> Product Backlog </h1>
+
+<br>
+
+<%= render'filtros' %>
+
+<br>
+
+<%= link_to new_historia_path do %>
+	Nova Historia <%= image_tag('nova_historia.png') %>
+<% end %>
+
+<%= link_to({controller: :lista_historias}, {style: 'float:right; margin-right:5px'}) do %>
+  Lista de histórias <%= image_tag('printer.png') %>
+<% end %>
+
+<br>
+
+<table class='lista_registros' width='100%'>
+  <thead>
+		<th><%= image_tag('historia.png') %></th>
+		<th>Nome</th>
+		<th>T</th>
+		<th>P</th>
+    <th></th>
+		<th></th>
+  </thead>
+  <tbody>
+    <% historias_sem_pacote = @historias.where(pacote_id: nil) %>
+    <% if historias_sem_pacote.any? %>
+      <%= render(partial: 'linhas_historias', locals: {historias: historias_sem_pacote }) %>
+    <% end %>
+    
+    <% @produto_escolhido.pacotes.each do |pacote| %>
+      <% historias_do_pacote = @historias.where(pacote_id: pacote)  %>
+      <% if historias_do_pacote.any? %>
+        
+          <tr>
+            <td colspan=6 align='left' style='padding-right:10px;'>
+              <b><%= image_tag('pacotes.png') %> <%= pacote.nome %></b>
+            </td>
+          </tr>
+        
+          <%= render(partial: 'linhas_historias', locals: {historias: historias_do_pacote }) %>
+          
+          <tr>
+            <td colspan=6 align='right' style='padding-right:10px;'>
+              <b>Subtotal do Pacote: <%= historias_do_pacote.sum(&:tamanho) %></b>
+            </td>
+          </tr>
+      <% end %>
+    <% end %>
+    
+    
+  </tbody>
+<table>
+
+<br />
+
+<div style='float:right; padding-right: 20px; font-size: 15px;'>
+	<b>Tamanho total do Backlog: <%= @historias.sum(&:tamanho) %></b>
+</div>
+
+<%= link_to new_historia_path do %>
+	Nova Historia	<%= image_tag('nova_historia.png') %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= image_tag('arquivo_fonte.png') %>
+<b>Arquivos Fonte (<%= @historia.arquivos_fonte.size %>):</b><br>
+
+<table class='lista_relacionamento'>
+	<tbody>
+		
+		<% @historia.arquivos_fonte.order(:caminho_completo).each do |af| %>
+			<tr>
+				<td><%= af.caminho_completo %></td>
+			</tr>
+		<% end %>
+				
+	</tbody>
+</table>

@@ -1,0 +1,43 @@
+<fieldset>
+	<legend>Importa Arquivos</legend>
+	
+	Comando de busca do log do repositório:
+	
+	<div style="background-color:black; color:white; padding:5px;">
+		<%= @repositorio.comando_buscar_log_xml %>
+	</div>
+	
+	<br>
+
+	<div id="resultado_importacao">
+	</div>
+	
+	<div id="botao_importar">
+		<%= button_to('Importar', nil, onclick: "importaArquivos();return false;") %>
+	</div>
+	
+	<div id="msg_importando" style="display:none">
+		<%= image_tag('anim_carregando.gif') %>
+		Importando, aguarde....
+	</div>
+	
+</fieldset>
+
+<script type="text/javascript" charset="utf-8">
+	function importaArquivos(){
+		$("#resultado_importacao").html("");
+		$("#botao_importar").hide();
+		$("#msg_importando").show();
+		
+		$.ajax({
+			url: '<%= url_for(action: :importa_arquivos) %>',
+			data: {
+				id: <%= @repositorio.id %>
+			},
+			complete: function(data){
+				$("#botao_importar").show();
+				$("#msg_importando").hide();
+			}
+		});
+	}
+</script>

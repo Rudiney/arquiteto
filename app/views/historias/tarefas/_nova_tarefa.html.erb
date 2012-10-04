@@ -1,0 +1,16 @@
+<tr>
+<%= form_for(:tarefa,
+	remote:true,
+	url:{
+		controller: :tarefas,
+		action: :nova,
+		historia_id: @historia.id }) do |f| %>
+		
+		<td></td>
+		<td><%= f.text_field(:descricao, style: "width: 100%; min-width:300px;") %></td>
+		<td><%= f.text_field(:tempo_estimado, size: 3) %></td>
+		<td><%= f.text_field(:tempo_real, size: 3) %></td>
+		<td><%= f.submit 'Salvar' %></td>
+
+<% end %>
+</tr>

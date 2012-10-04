@@ -1,0 +1,17 @@
+<%= image_tag('arquivos.png') %>
+<b>Anexos (<%= @historia.anexos.size %>):</b><br>
+
+<table class='lista_relacionamento'>
+	<tbody>
+		
+		<% @historia.anexos.each do |anexo|  %>
+			<tr>
+				<td><%= link_to(anexo.descricao,anexo.arquivo.url) %></td>
+				<td><%= link_to(image_tag('excluir.png'),{controller: :historia_anexos, action: :deleta, id: anexo, historia: @historia}, {remote:true, confirm: 'Você tem certeza?'} ) %></td>
+			</tr>
+		<% end %>
+				
+	</tbody>
+</table>
+
+<%= render 'historias/novo_anexo' %>	

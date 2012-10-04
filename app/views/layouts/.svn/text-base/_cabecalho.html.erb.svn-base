@@ -1,0 +1,5 @@
+<% if @produto_escolhido %>
+	<div id="produto_escolhido"><%= @produto_escolhido.nome %></div>
+<% else %>
+	Nenhum produto foi escolhido! <%= link_to 'Escolha um produto', controller: :escolha_um_produto %>
+<% end %>

@@ -1,0 +1,34 @@
+<% 2.times do |p| 
+produto = p+1 %>
+
+modelos_produto_<%= produto.por_extenso %>:
+  id: <%= produto %>1
+  produto_id: <%= produto %>
+  nome: Modelos
+  string_expressao_regular: app/models/produto_<%= produto.por_extenso %>
+
+controladores_produto_<%= produto.por_extenso %>:
+  id: <%= produto %>2
+  produto_id: <%= produto %>
+  nome: Controladores
+  string_expressao_regular: app/controllers/produto_<%= produto.por_extenso %>
+
+telas_produto_<%= produto.por_extenso %>:
+  id: <%= produto %>3
+  produto_id: <%= produto %>
+  nome: Telas
+  string_expressao_regular: app/views/produto_<%= produto.por_extenso %>
+
+testes_unitarios_produto_<%= produto.por_extenso %>:
+  id: <%= produto %>4
+  produto_id: <%= produto %>
+  nome: Testes Unitários
+  string_expressao_regular: test/unit/produto_<%= produto.por_extenso %>
+
+testes_funcionais_produto_<%= produto.por_extenso %>:
+  id: <%= produto %>5
+  produto_id: <%= produto %>
+  nome: Testes Funcionais
+  string_expressao_regular: test/functional/produto_<%= produto.por_extenso %>
+
+<% end %>

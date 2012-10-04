@@ -1,0 +1,21 @@
+<%= form_for(@funcionalidade) do |f| %>
+	
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @funcionalidade} %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :size => 70 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url_artigo_wiki, 'Url do artigo na Wiki' %><br />
+    <%= f.text_field :url_artigo_wiki, :size => 50 %>
+		<div class='explicacao'>
+			Deixe em branco para utilizar o padrão conforme o produto.
+		</div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>

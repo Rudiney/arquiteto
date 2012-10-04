@@ -1,0 +1,6 @@
+<h1>Editando Categoria de Arquivo Fonte</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Exibir', @categoria_arquivo_fonte %> |
+<%= link_to 'Voltar', categorias_arquivos_fonte_path %>

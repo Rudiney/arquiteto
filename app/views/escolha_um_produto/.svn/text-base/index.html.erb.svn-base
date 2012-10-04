@@ -1,0 +1,20 @@
+<% if @produtos.empty? %>
+	Não existe nenhum produto no arquiteto
+<% else %>
+	Escolha 1 dos produtos abaixo para trabalhar:
+	<ul>
+		
+		<% @produtos.each do |produto| %>
+		
+			<li><%= link_to produto.nome, :action => :escolhido, :id => produto %></li>
+			
+		<% end %>
+		
+	</ul>	
+<% end %>
+
+<br>
+
+Para criar um novo produto, <%= link_to 'clique aqui', new_produto_path %>
+
+

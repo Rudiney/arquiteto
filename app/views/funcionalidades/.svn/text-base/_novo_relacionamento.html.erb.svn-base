@@ -1,0 +1,14 @@
+<%= form_for(@funcionalidade, 
+	remote: true,
+	url:{
+		controller: :relacao_funcionalidades,
+		action: :novo,
+		entre: @funcionalidade.id 
+ 	}) do |f| %>
+
+	Nova relação 
+	<%= select('', :relacao, RelacaoFuncionalidades::TIPOS_RELACAO, {}) %>
+	com: 
+	<%= select('', :e, @funcionalidade.funcionalidades_nao_relacionadas.map{|f| [f.nome_exibicao, f.id]},{}) %>
+	<%= f.submit 'Salvar' %>
+<% end %>

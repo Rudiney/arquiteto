@@ -1,0 +1,19 @@
+.lista_registros{
+	border-spacing: 0px;
+	border-padding: 0px;
+	border: 1px solid #999;
+}
+
+.lista_registros thead {
+	background-color: #ddd;
+}
+
+.lista_registros td, th{
+	white-space: nowrap;
+	padding: 2px;
+	border-bottom: 1px solid #999;
+}
+
+.lista_registros tbody tr:hover{
+	background-color: #F0F0F0;
+}

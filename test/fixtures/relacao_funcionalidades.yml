@@ -1,0 +1,19 @@
+# aqui as relacoes entre as funcionalidades dos produtos é:
+# um com cinco, dois com seis, assim por diante tanto do produto um quando to produto 2
+
+<% 5.times do |i| 
+numero = i+1 
+outro = numero + 4 %>
+entre_<%= numero.por_extenso %>_e_<%= outro.por_extenso %>_produto_um:
+  id: 1<%= numero %><%= outro %>
+  funcionalidade_um_id:   1<%= numero %>
+  funcionalidade_dois_id: 1<%= outro %>
+  relacao: <%= numero.even? ? 'forte' : 'fraca' %>
+
+entre_<%= numero.por_extenso %>_e_<%= outro.por_extenso %>_produto_dois:
+  id: 2<%= numero %><%= outro %>
+  funcionalidade_um_id:   2<%= numero %>
+  funcionalidade_dois_id: 2<%= outro %>
+  relacao: <%= numero.even? ? 'forte' : 'fraca' %>
+
+<% end %>

@@ -1,0 +1,19 @@
+<% historias.each do |h| %>
+
+  <tr class='linha_historia cor_historia_<%= h.situacao_nome %><%= cycle('_zebra','') %>'>
+		    
+		<td align='right' width='30'><%= h.id %>)</td>
+		<td><%= link_to(h.nome,h) %></td>
+		
+		<td align='center' width='30'><%= h.tamanho %></td>
+		<td align='center' width='30'>
+		  <%= form_for(h) do |f| %>
+		    <%= hidden_field_tag(:voltar_para, 'backlog') %>
+		    <%= f.text_field(:prioridade, size:1, onkeydown: 'this.style.backgroundColor = "red";') %>
+		  <% end %>
+		</td>
+	
+    <td width='16'><%= link_to image_tag('editar.png'), edit_historia_path(h) %></td>
+    <td width='16'><%= link_to image_tag('excluir.png'), h, confirm: 'Você tem certeza?', method: :delete %></td>
+  </tr>
+<% end %>

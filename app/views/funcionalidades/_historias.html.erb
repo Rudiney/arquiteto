@@ -1,0 +1,12 @@
+<%= image_tag('pb.png') %>
+<b>Historias (<%= @funcionalidade.historias.size %>):</b><br>
+
+<table class='lista_relacionamento'>
+	<tbody>
+		<% @funcionalidade.historias.each do |h|  %>
+			<tr>
+				<td><%= link_to(h.nome_exibicao, h) %></td>
+			</tr>
+		<% end %>
+	</tbody>	
+</table>

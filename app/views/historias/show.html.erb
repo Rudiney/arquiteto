@@ -1,0 +1,57 @@
+<h1>Historia</h1>
+<p id="notice"><%= notice %></p><br>
+
+<h2><%= @historia.nome_exibicao %></h2>
+<br>
+
+<p>
+	<b>Pacote:</b> <%= @historia.pacote ? link_to(@historia.pacote.nome_exibicao, @historia.pacote) : '' %>,
+	<b>Prioridade:</b> <%= @historia.prioridade %>,
+	<b>Situação:  </b> <%= @historia.situacao_nome.to_s.humanize %>,
+</p>
+<p>
+  <b>Complexidade de Negócio:</b> <%= @historia.complexidade_negocio %>
+  <b>Complexidade da Interface:</b> <%= @historia.complexidade_interface %>
+  <b>Esforço:</b> <%= @historia.esforco %>
+  <b>Risco:</b> <%= @historia.risco %>
+  <b>Tamanho:</b> <%= @historia.tamanho %>
+</p>
+<br>
+<p style='font-size:15px'>
+	<div id="descricao_nao_formatada" style='display:none;'><%= @historia.descricao %></div>
+	<div id="descricao_formatada"></div>
+</p>
+
+<br>
+<hr>
+<div id="funcionalidades">
+	<%= render 'funcionalidades' %>
+</div>
+
+<br>
+<hr>
+<div id="tarefas">
+	<%= render 'tarefas' %>
+</div>
+
+<br>
+<hr>
+<div id="arquivos_fonte">
+	<%= render 'arquivos_fonte' %>
+</div>
+
+
+<br>
+<hr>
+<div id="anexos">
+	<%= render 'anexos' %>
+</div>
+
+<br>
+<%= link_to 'Editar', edit_historia_path(@historia) %> |
+<%= link_to 'Voltar', controller: :backlog %>
+
+
+<script type="text/javascript" charset="utf-8">
+	$('#descricao_formatada').html(wiky.process($("#descricao_nao_formatada").html()));
+</script>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @pacote.nome %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%= @pacote.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_pacote_path(@pacote) %> |
+<%= link_to 'Voltar', pacotes_path %>

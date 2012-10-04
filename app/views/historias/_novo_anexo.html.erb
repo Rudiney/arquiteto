@@ -1,0 +1,15 @@
+<%= form_for(:anexo,
+	url:{
+		controller: :historia_anexos,
+		action: :novo,
+		id: @historia.id },
+	html: {
+		miltipart: true
+	}) do |f| %>
+
+	Novo anexo:
+	<%= f.file_field(:arquivo) %>
+	Com a descrição:
+	<%= f.text_field(:descricao) %>
+	<%= f.submit 'Salvar' %>
+<% end %>

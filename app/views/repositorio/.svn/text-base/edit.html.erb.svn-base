@@ -1,0 +1,43 @@
+<h1>Repositório</h1>
+
+<div style='color:green;'>
+	<%= flash[:sucesso] %>
+</div>
+
+<br>
+
+<%= render partial: 'padrao_cadastros/erros', locals:{registro: @repositorio} %>
+
+<%= form_for(:repositorio, url: {action: :update}) do |f| %>
+
+	<div>
+			<b><%= f.label(:endereco) %>:</b>
+			<%= f.text_field(:endereco, :size => 50) %>
+	</div>
+	
+	<div style='color:grey'>
+		PS: Ligue a importação sempre para o <b>trunk</b> do seu repositório SVN. <br>
+		Caso contrário os arquivos ficarão duplicados pois <i>/trunk/<b>arquivo.txt</b></i> é não é o mesmo arquivo que <i>/branches/qualquer_branch/<b>arquivo.txt</b></i>.
+		
+	</div>
+	
+	<br>
+	
+	<div>
+		<b><%= f.label(:ultima_revisao_importada) %>:</b>
+		<%= f.text_field(:ultima_revisao_importada, :size => 4) %>
+	</div>
+	
+	<br>
+
+<%= f.submit('Salvar') %>
+
+<% end %>
+
+<br>
+
+<% if @produto_escolhido.repositorio %>
+	<div id="importa_arquivos_repositorio">
+		<%= render 'importa_arquivos_repositorio' %>	
+	</div>
+<% end %>

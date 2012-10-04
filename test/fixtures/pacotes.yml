@@ -1,0 +1,10 @@
+# cada produto terá 5 pacotes
+<% 1.upto(2).each do |produto| %>
+<% 1.upto(5).each do |pacote| %>
+<%= pacote.por_extenso %>_produto_<%= produto.por_extenso %>:
+   id: <%= produto %><%= pacote %>
+   produto_id: <%= produto %>
+   nome: Pacote <%= pacote.por_extenso %> do produto <%= produto.por_extenso %>
+   descricao: Este é o pacote de número <%= pacote %> do produto <%= produto %>
+<% end %>
+<% end %>

@@ -1,0 +1,32 @@
+# Para cada funcoinalidade terá 2 historias, a f1 tera a h1 e h11... e por ai vai
+<% 2.times do |p|
+produto = p+1
+10.times do |f| 
+funcionalidade = f+1
+historia_um = funcionalidade
+historia_dois = historia_um + 10 %>
+
+funcionalidade_<%= funcionalidade.por_extenso %>_historia_<%= historia_um.por_extenso %>_produto_<%= produto.por_extenso %>:
+  funcionalidade_id: <%= produto %><%= funcionalidade %>
+  historia_id: <%= produto %><%= historia_um %>
+
+funcionalidade_<%= funcionalidade.por_extenso %>_historia_<%= historia_dois.por_extenso %>_produto_<%= produto.por_extenso %>:
+  funcionalidade_id: <%= produto %><%= funcionalidade %>
+  historia_id: <%= produto %><%= historia_dois %>
+
+<% end %>
+<% end %>
+
+# agora as historas 1..5 vao pertencer a mais uma funcionalidade,
+<% 2.times do |p|
+produto = p+1
+5.times do |h| 
+historia = h+1
+funcionalidade = historia + 4%>
+
+funcionalidade_<%= funcionalidade.por_extenso %>_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  funcionalidade_id: <%= produto %><%= funcionalidade %>
+  historia_id: <%= produto %><%= historia %>
+
+<% end %>
+<% end %>

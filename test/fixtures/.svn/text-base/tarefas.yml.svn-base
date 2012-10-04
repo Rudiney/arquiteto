@@ -1,0 +1,35 @@
+# cada história terá 4 tafea, criar os teste, codificar, integrar, e documentar
+<% 2.times do |p|
+produto = p+1
+20.times do |h| 
+historia = h+1 %>
+testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>1
+  historia_id: <%= produto %><%= historia %>
+  descricao: Criar os testes unitários da história <%= historia.por_extenso %>
+  segundos_estimados: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+  segundos_reais: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+
+codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>2
+  historia_id: <%= produto %><%= historia %>
+  descricao: Criar o código para a história <%= historia.por_extenso %>
+  segundos_estimados: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+  segundos_reais: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+
+integrar_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>3
+  historia_id: <%= produto %><%= historia %>
+  descricao: Integrar o código desenvolvido para a história <%= historia.por_extenso %>
+  segundos_estimados: <%= (15..360).to_a.random().minute %>
+  segundos_reais: <%= (15..360).to_a.random().minute %>
+
+documentar_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>4
+  historia_id: <%= produto %><%= historia %>
+  descricao: Documentar na Wiki o que a história <%= historia.por_extenso %> faz
+  segundos_estimados: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+  segundos_reais: <%= (15..360).to_a.random().minute %> #de 16 minutos a 6 horas
+
+<% end %>
+<% end %>

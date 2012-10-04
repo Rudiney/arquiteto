@@ -1,0 +1,6 @@
+<h1>Editando projeto</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Exibir', @projeto %> |
+<%= link_to 'Voltar', projetos_path %>

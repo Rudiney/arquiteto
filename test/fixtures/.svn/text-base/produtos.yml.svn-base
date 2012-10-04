@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+um:
+  id: 1
+  nome: Primeiro
+  url_base_wiki: http://www.wiki_de_teste.com/
+
+dois:
+  id: 2
+  nome: Segundo
+  url_base_wiki: http://www.segunda_wiki_de_teste.com/

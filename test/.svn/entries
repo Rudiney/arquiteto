@@ -1,0 +1,77 @@
+10
+
+dir
+51
+svn://rudiney@192.168.1.200/segundo_arquiteto/trunk/test
+svn://rudiney@192.168.1.200
+
+
+
+2012-03-21T10:00:54.779262Z
+48
+rudiney
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+113f2074-178a-11e1-b6e7-65d7a8a8d47c
+
+unit
+dir
+
+test_helper.rb
+file
+
+
+
+
+2012-02-11T10:25:32.000000Z
+0fac94addcef80f647f00081a4162077
+2012-02-24T09:24:28.608983Z
+47
+rudiney
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1242
+
+performance
+dir
+
+functional
+dir
+
+integration
+dir
+
+fixtures
+dir
+

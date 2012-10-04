@@ -1,0 +1,47 @@
+<% 2.times do |p|
+produto = p+1
+20.times do |h| 
+historia = h+1 %>
+
+fixture_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>11
+  caminho_completo: /test/fixtures/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>/fixture.yml
+  produto_id: <%= produto %>
+
+teste_unitario_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>12
+  caminho_completo: /test/unit/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>/fixture.yml
+  produto_id: <%= produto %>
+
+teste_funcional_tarefa_testes_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>13
+  caminho_completo: /test/functional/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>/fixture.yml
+  produto_id: <%= produto %>
+
+modelo_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>21
+  caminho_completo: /app/models/produto_<%= produto.por_extenso %>_historia_<%= historia.por_extenso %>.rb
+  produto_id: <%= produto %>
+
+controller_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>22
+  caminho_completo: /app/controllers/produto_<%= produto.por_extenso %>_historia_<%= historia.por_extenso %>_controller.rb
+  produto_id: <%= produto %>
+
+tela_tarefa_codificacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>23
+  caminho_completo: /app/views/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>.html.erb
+  produto_id: <%= produto %>
+
+documentacao_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>41
+  caminho_completo: /doc/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>.html
+  produto_id: <%= produto %>
+  
+arquivo_comum_das_funcionalidades_historia_<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>66
+  caminho_completo: /arquivo/comum/produto_<%= produto.por_extenso %>/historia_<%= historia.por_extenso %>.cmm
+  produto_id: <%= produto %>
+
+<% end %>
+<% end %>

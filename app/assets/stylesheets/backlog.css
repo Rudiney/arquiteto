@@ -1,0 +1,35 @@
+.filtro_historia{
+	float:left;
+	padding-left: 5px;
+	padding-right: 3px;
+}
+
+.cor_historia_incompleta{
+	background-color: #F6F6F6;
+}
+
+.cor_historia_incompleta_zebra{
+	background-color: #F1F1F1;
+}
+
+.cor_historia_aguardando{
+	background-color: #FFFCC1;
+}
+
+.cor_historia_aguardando_zebra{
+	background-color: #FFFADF;
+}
+
+.cor_historia_iniciada{
+	background-color: #D3D6FA;
+}
+.cor_historia_iniciada_zebra{
+	background-color: #E1E3FA;
+}
+
+.cor_historia_pronta{
+	background-color: #D4EBDB;
+}
+.cor_historia_pronta_zebra{
+	background-color: #E0F9E8;
+}

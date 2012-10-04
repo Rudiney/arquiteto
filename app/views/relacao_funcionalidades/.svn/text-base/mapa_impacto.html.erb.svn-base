@@ -1,0 +1,41 @@
+<h1>Mapa de impacto</h1>
+<table class="tabela_mapa_impacto">
+	
+	<tr>
+		<th></th>
+		<% @funcionalidades.each do |f| %>	
+			<th><%= link_to(f.id,f, title: f.nome_exibicao) %></th>
+		<% end %>
+	</tr>
+	
+	
+	
+	<% @funcionalidades.each do |f_linha| %>	
+	
+		<tr>
+			<th align='right'><%= link_to(f_linha.id,f_linha, title: f_linha.nome_exibicao) %></th>
+			
+			<% @funcionalidades.each do |f_coluna| %>
+			
+				<td id='relacao_entre_<%= f_linha.id %>_e_<%= f_coluna.id %>'>
+					
+					<%# ignora as celulas das funcionalidades iguais %>
+					<% if(f_linha == f_coluna) %>
+						<div class='ignora'></div>
+					<% end %>
+			
+					<%# quando as funcionalidades tem relacao %>
+					<% if(f_linha.relacao_com(f_coluna)) %>
+						<div class='relacao_<%= f_linha.relacao_com(f_coluna) %>'>
+							<%= f_linha.id %>/<%= f_coluna.id %>
+						</div>
+					<% end %>
+					
+				</td>
+			<% end %>
+			
+		</tr>
+		
+	<% end %>
+	
+</table>

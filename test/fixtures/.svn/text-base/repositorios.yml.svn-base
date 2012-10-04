@@ -1,0 +1,12 @@
+#cada produto só pode ter 1 repositório
+produto_um:
+  id: 1
+  produto_id: 1
+  endereco: ./ #assume que o produto esteja sob o SVN
+  ultima_revisao_importada: 0
+
+produto_dois:
+  id: 2
+  produto_id: 2
+  endereco: ./ #assume que o produto esteja sob o SVN
+  ultima_revisao_importada: 0

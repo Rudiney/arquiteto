@@ -1,0 +1,28 @@
+<%= image_tag('relacao_funcionalidades.png') %>
+<b>Relacionamentos (<%= @funcionalidade.relacionamentos.size %>):</b><br>
+
+<table class='lista_relacionamento'>
+	
+	<tbody>
+		
+		<% @funcionalidade.relacionamentos_com.each do |r| f = r.funcionalidade_dois %>
+			<tr class='relacao_<%= r.relacao %>'>
+				<td><%= image_tag("relacao_#{r.relacao}.png") %></td>
+				<td><%= link_to(f.nome_exibicao, f) %></td>
+				<td><%= link_to(image_tag('excluir.png'),{controller: :relacao_funcionalidades, action: :deleta, id: r, funcionalidade: @funcionalidade}, {remote:true, confirm: 'Você tem certeza?'} ) %></td>
+			</tr>
+		<% end %>
+
+		<% @funcionalidade.relacionamentos_de.each do |r| f = r.funcionalidade_um %>
+			<tr class='relacao_<%= r.relacao %>'>
+				<td><%= image_tag("relacao_#{r.relacao}.png") %></td>
+				<td><%= link_to(f.nome_exibicao, f) %></td>
+				<td><%= link_to(image_tag('excluir.png'),{controller: :relacao_funcionalidades, action: :deleta, id: r, funcionalidade: @funcionalidade}, {remote:true, confirm: 'Você tem certeza?'} ) %></td>
+			</tr>
+		<% end %>			
+		
+	</tbody>
+	
+</table>
+
+<%= render 'funcionalidades/novo_relacionamento' %>

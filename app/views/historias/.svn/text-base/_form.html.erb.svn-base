@@ -1,0 +1,96 @@
+<br>
+<%= form_for(@historia) do |f| %>
+	
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @historia} %>
+
+  <div class="field">
+    <b><%= f.label :nome %>:</b> <%= f.text_field :nome, :size => 128 %>
+  </div>
+
+  <div class="field" style='float:left'>
+    <b><%= f.label :pacote_id %>:</b>
+    <%= select('historia', 'pacote_id', @produto_escolhido.pacotes.all.map{|p| [p.nome_exibicao, p.id]},{include_blank: true}) %>
+  </div>
+
+  <div class="field" style='float:left; padding-left: 5px'>
+    <b><%= f.label :prioridade %>:</b>
+    <%= f.text_field(:prioridade, :size => 2) %>
+  </div>
+
+	<div class="field" style='float:left; padding-left: 5px'>
+    <b><%= f.label :situacao %>:</b>
+ 		<%= select('historia', :situacao, Historia::SITUACOES.collect{|c,n| [n.to_s.humanize,c]}, {}) %>
+	</div>
+	
+	<table border="0" cellspacing="0" cellpadding="0" style='clear:both'>
+   <tr>
+     <td align='right'><b><%= f.label :complexidade_negocio %>:</b></td>
+     <td style='padding-left: 5px'><%= select('historia', :complexidade_negocio, Historia::OPCOES_TAMANHOS ) %></td>
+   </tr>
+   <tr>
+     <td align='right'><b><%= f.label :complexidade_interface %>:</b></td>
+     <td style='padding-left: 5px'><%= select('historia', :complexidade_interface, Historia::OPCOES_TAMANHOS ) %></td>
+   </tr>
+   <tr>
+     <td align='right'><b><%= f.label :esforco %>:</b></td>
+     <td style='padding-left: 5px'><%= select('historia', :esforco, Historia::OPCOES_TAMANHOS ) %></td>
+   </tr>
+   <tr>
+     <td align='right'><b><%= f.label :risco %>:</b></td>
+     <td style='padding-left: 5px'><%= select('historia', :risco, Historia::OPCOES_TAMANHOS ) %></td>
+   </tr>
+   <tr>
+     <td align='right'><b>Tamanho:</b></td>
+     <td><div id='tamanho' style='padding-left: 5px'></div></td>
+   </tr>
+	</table>
+  
+	
+  <div class="field" style='clear:both; float:left'>
+	
+    <b><%= f.label :descricao %>:</b>
+		<a href='#' style="float:right;" onclick='mostraPrevisao()'>previsão</a> <br>
+		
+ 		<%= f.text_area :descricao, :rows => 7, :cols => 100 %>
+
+		<a href='https://github.com/tanin47/wiky.js#readme' style="clear:both; float:right;">ajuda na sintaxe?</a> <br>
+  </div>
+	
+	<fieldset id="fieldset_previsao" style="clear:both; float:left; display:none;">
+		<legend>Previsão <a href='#' onclick='escondePrevisao()'>[X]</a></legend>
+		<div id="previsao_descricao_historia" style="clear:both"></div>
+	</fieldset>
+
+
+  <div class="actions" style="clear:both">
+		<br>
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript" charset="utf-8">
+	function mostraPrevisao(){
+		$('#previsao_descricao_historia').html(wiky.process($("#historia_descricao").val()));
+		$("#fieldset_previsao").css("display",'');
+	};
+	
+	function escondePrevisao(){
+		$("#fieldset_previsao").css("display",'none');
+	};
+	
+	function atualizaTamanho(){
+	  var total = (parseInt($('#historia_complexidade_negocio').val())+
+	    parseInt($('#historia_complexidade_interface').val())+
+	    parseInt($('#historia_esforco').val())+
+	    parseInt($('#historia_risco').val()));
+
+      $('#tamanho').html(total);
+	};
+	
+	$('#historia_complexidade_negocio,#historia_complexidade_interface,#historia_esforco,#historia_risco').change(atualizaTamanho)
+	
+	atualizaTamanho();
+
+	$('#historia_nome').focus();
+</script>

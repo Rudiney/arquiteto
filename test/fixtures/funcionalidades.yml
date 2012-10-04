@@ -1,0 +1,15 @@
+<% 10.times do |i| %>
+<% numero = i+1 %>
+<%= numero.por_extenso %>_produto_um:
+  id: 1<%= numero %>
+  nome: Funcionalidade <%= numero.por_extenso %> produto 1
+  url_artigo_wiki: ''
+  produto_id: 1
+
+<%= numero.por_extenso %>_produto_dois:
+  id: 2<%= numero %>
+  nome: Funcionalidade <%= numero.por_extenso %> produto 2
+  url_artigo_wiki: ''
+  produto_id: 2
+
+<% end %>

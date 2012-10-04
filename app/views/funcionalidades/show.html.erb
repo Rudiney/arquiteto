@@ -1,0 +1,42 @@
+<h1> Funcionalidade</h1>
+
+<p id="notice"><%= notice %></p><br>
+
+<h2><%= @funcionalidade.nome_exibicao %> </h2>
+<br>
+
+<p>
+  <b>Documentação:</b><br>
+	<%= link_to(@funcionalidade.url_artigo_wiki,@funcionalidade.url_artigo_wiki) %>
+</p>
+
+<br>
+
+<div id="relacionamentos">
+	<%= render 'relacionamentos' %>
+</div>
+<br>
+	<hr>
+<br>
+
+<div id="relacionamentos_tecnicos">
+	<%= render 'relacionamentos_tecnicos' %>
+</div>
+<br>
+	<hr>
+<br>
+
+<div id="historias">
+	<%= render 'historias' %>
+</div>
+<br>
+	<hr>
+<br>
+
+<div id="arquivos_fonte">
+	<%= render 'arquivos_fonte' %>
+</div>
+
+<br>
+<%= link_to 'Editar', edit_funcionalidade_path(@funcionalidade) %> |
+<%= link_to 'Voltar', funcionalidades_path %>

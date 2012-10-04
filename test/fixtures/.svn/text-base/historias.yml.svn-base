@@ -1,0 +1,18 @@
+<% 2.times do |p|
+produto = p+1
+20.times do |h| 
+historia = h+1 %>
+<%= historia.por_extenso %>_produto_<%= produto.por_extenso %>:
+  id: <%= produto %><%= historia %>
+  produto_id: <%= produto %>
+  nome: Historia <%= historia.por_extenso %> do Produto <%= produto.por_extenso %>
+  descricao: Como o usuario da história <%= historia.por_extenso %> gostaria da história <%= historia.por_extenso %> para fazer o que a história faz.
+  prioridade: <%= historia %>
+  situacao: <%= [10,20,30,40].random() %>
+  complexidade_negocio: <%= [1,3,5,8].random() %>
+  complexidade_interface: <%= [1,3,5,8].random() %>
+  esforco: <%= [1,3,5,8].random() %>
+  risco: <%= [1,3,5,8].random() %>
+  pacote_id: <%= produto %><%= [1,2,3,4,5].random() %>
+<% end %>
+<% end %>

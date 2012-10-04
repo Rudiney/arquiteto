@@ -1,0 +1,35 @@
+<h1>Funcionalidades</h1>
+
+<div style='float:right; padding-right: 10px;'>
+	<%= link_to 'Mapa de Impacto', controller: :relacao_funcionalidades, action: :mapa_impacto %>
+</div>
+
+<%= link_to 'Nova Funcionalidade', new_funcionalidade_path %> <br><br>
+
+<table class='lista_registros'>
+  <thead>
+		<th>#</th>
+		<th>Nome</th>
+		<th>Wiki</th>
+		
+    <th></th><th></th><th></th>
+  </thead>
+
+	<tbody>
+		
+	<% @funcionalidades.each do |f| %>
+	  <tr>
+			<td align='right'><%= f.id %>)</td>
+			<td width='300px'><%= link_to(f.nome,f) %></td>
+			<td><%= link_to('doc',f.url_artigo_wiki) %></td>
+
+	    <td width='16'><%= link_to image_tag('editar.png'), edit_funcionalidade_path(f) %></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), f, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nova Funcionalidade', new_funcionalidade_path %>

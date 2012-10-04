@@ -1,0 +1,43 @@
+<table class='tabela_tarefas'>
+	<thead>
+		<tr>
+			<th>
+				<%= image_tag('tarefas.png') %>
+			</th>
+			<th>
+				Tarefas (<%= @historia.tarefas.size %>)
+			</th>
+			<th>Est.</th>
+			<th>Real</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<% @historia.tarefas.order(:id).each do |t|  %>
+			<tr>
+				<td><%= t.identificador %></td>
+				<td><%= t.descricao %></td>
+				<td align='center'><%= t.tempo_estimado %></td>
+				<td align='center'><%= t.tempo_real %></td>
+				<td align='center'>
+					<%= link_to(image_tag('editar.png'),{controller: :tarefas, action: :edita, id: t}, {remote:true} ) %>
+					<%= link_to(image_tag('excluir.png'),{controller: :tarefas, action: :deleta, id: t}, {remote:true, confirm: 'Você tem certeza?'} ) %>
+				</td>
+			</tr>
+		<% end %>
+		
+		<tr class=''>
+			<td colspan='2' align='right'> 
+				<b>Total:</b>
+			</td>
+			<td align='center'><b><%= @historia.tempo_estimado %></b></td>
+			<td align='center'><b><%= @historia.tempo_real %></b></td>
+			<td align='center'><b><%= @historia.diferenca_estimativa %></b></td>
+		</tr>			
+		
+	</tbody>
+	<tfoot id='linha_formulario_manutencao_tarefa'>
+		<%= render('historias/tarefas/nova_tarefa') %>	
+	</tfoot>
+</table>

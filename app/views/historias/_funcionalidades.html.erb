@@ -1,0 +1,18 @@
+<%= image_tag('funcionalidades.png') %>
+<b>Funcionalidades (<%= @historia.funcionalidades.size %>):</b><br>
+
+<table class='lista_relacionamento'>
+	<tbody>
+		
+		<% @historia.funcionalidade_historias.order(:funcionalidade_id).each do |fh| f = fh.funcionalidade  %>
+			<tr>
+				<td><%= link_to(f.nome_exibicao, f) %></td>
+				<td><%= link_to(image_tag('excluir.png'),{controller: :funcionalidade_historias, action: :deleta, id: fh, historia: @historia}, {remote:true, confirm: 'Você tem certeza?'} ) %></td>
+			</tr>
+		<% end %>
+				
+	</tbody>
+</table>
+<% if @historia.funcionalidades_nao_relacionadas.any? %>
+	<%= render 'historias/nova_funcionalidade' %>	
+<% end %>

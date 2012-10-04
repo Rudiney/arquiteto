@@ -1,0 +1,8 @@
+#cabecalho #produto_escolhido{
+	font-family: 'Comic Sans', 'Comic Sans MS', 'cursive';
+	text-align: center;
+	text-shadow: #555 1px 1px 1px;
+	color: black;
+	font-size: 35px;
+	padding-top: 15px;
+}

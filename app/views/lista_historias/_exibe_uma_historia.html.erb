@@ -1,0 +1,24 @@
+<br>
+<p>
+<h2><%= link_to(historia.nome_exibicao, historia) %></h2>
+<p>
+	<b>Pacote:</b> <%= historia.pacote ? historia.pacote.nome_exibicao : '' %>,
+	<b>Prioridade:</b> <%= historia.prioridade %>,
+	<b>Situação:  </b> <%= historia.situacao_nome.to_s.humanize %>,
+	<b>Tamanho:</b> <%= historia.tamanho %>
+</p>
+<p style='font-size:15px'>
+  
+	<div id="descricao_nao_formatada_historia_<%= historia.id %>" style='display:none;'>
+	  <%= historia.descricao %>
+	</div>
+	
+	<div id="descricao_formatada_historia_<%= historia.id %>"></div>
+</p>
+
+</p>
+<br>
+<hr>
+<script type="text/javascript" charset="utf-8">
+	$('#descricao_formatada_historia_<%= historia.id %>').html(wiky.process($("#descricao_nao_formatada_historia_<%= historia.id %>").html()));
+</script>

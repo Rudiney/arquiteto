@@ -1,0 +1,11 @@
+.lista_relacionamento .relacao_forte a{
+	color: red;
+}
+
+.lista_relacionamento .relacao_fraca a{
+	color: blue;
+}
+
+.lista_relacionamento tr:hover{
+	background-color: #EAEAEA;
+}
