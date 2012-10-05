@@ -29,7 +29,7 @@ class ArquivoFonte < ActiveRecord::Base
 	# Este método retorna todas as historias do arquivo fonte
 	def historias
 		Historia.joins(tarefas: :arquivos_fonte).
-		where(tarefas:{arquivos_fonte:{id: self}})
+		where(arquivos_fonte:{id: self})
 	end
 	
 	# Retorna todas as funcionalidades do arquivo fonte.
@@ -39,7 +39,7 @@ class ArquivoFonte < ActiveRecord::Base
 	# as funcionalidades deste arquivo fonte.
 	def funcionalidades
 		Funcionalidade.joins(historias:{tarefas: :arquivos_fonte}).
-		where(historia:{tarefas:{arquivos_fonte:{id: self}}})
+		where(arquivos_fonte:{id: self})
 	end
 	
 	def categorias

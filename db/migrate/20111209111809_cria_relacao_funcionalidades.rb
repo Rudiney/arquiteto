@@ -4,7 +4,7 @@ class CriaRelacaoFuncionalidades < ActiveRecord::Migration
 			t.integer :funcionalidade_um_id,   :null => false
 			t.integer :funcionalidade_dois_id, :null => false
 			t.string  :relacao               , :null => false, :limit => 5 #forte/fraca
-			t.timestamps
+			t.timestamps :null => true
 		end
 		
 		add_index :relacao_funcionalidades, [:funcionalidade_um_id, :funcionalidade_dois_id], :unique => true, :name => :indice_entre_um_e_dois

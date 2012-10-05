@@ -67,7 +67,7 @@ class Funcionalidade < ActiveRecord::Base
 	
 	def arquivos_fonte
 		ArquivoFonte.joins(tarefas:{historia: :funcionalidades}).
-		where(tarefas:{historia:{funcionalidades:{id: self}}})
+		where(funcionalidades:{id: self})
 	end
 	
 	# Agrupa os arquivos fonte por categoria.

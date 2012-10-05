@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
   create_table "arquivos_fonte", :force => true do |t|
     t.string   "caminho_completo", :null => false
     t.integer  "produto_id",       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "arquivos_fonte", ["produto_id", "caminho_completo"], :name => "index_arquivos_fonte_on_projeto_id_and_caminho_completo", :unique => true
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.integer  "produto_id",               :null => false
     t.string   "nome",                     :null => false
     t.string   "string_expressao_regular", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "funcionalidade_historias", :force => true do |t|
     t.integer  "funcionalidade_id", :null => false
     t.integer  "historia_id",       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   add_index "funcionalidade_historias", ["funcionalidade_id", "historia_id"], :name => "indice_unico_pela_historia_funcionalidade", :unique => true
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.string   "nome",            :null => false
     t.integer  "produto_id",      :null => false
     t.string   "url_artigo_wiki"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "historia_anexos", :force => true do |t|
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.integer  "arquivo_file_size"
     t.string   "arquivo_content_type"
     t.datetime "arquivo_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "historias", :force => true do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.text     "descricao"
     t.integer  "prioridade"
     t.integer  "situacao",                              :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "complexidade_negocio",   :default => 0, :null => false
     t.integer  "complexidade_interface", :default => 0, :null => false
     t.integer  "esforco",                :default => 0, :null => false
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
 
   create_table "produtos", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "url_base_wiki"
     t.text     "descricao"
   end
@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.integer  "produto_id",                              :null => false
     t.string   "endereco",                                :null => false
     t.integer  "ultima_revisao_importada", :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   add_index "repositorios", ["produto_id"], :name => "index_repositorios_on_projeto_id", :unique => true
@@ -117,15 +117,15 @@ ActiveRecord::Schema.define(:version => 20120405135424) do
     t.string   "descricao",          :null => false
     t.integer  "segundos_estimados"
     t.integer  "segundos_reais"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "tarefas_arquivos_fonte", :force => true do |t|
     t.integer  "tarefa_id",        :null => false
     t.integer  "arquivo_fonte_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "tarefas_arquivos_fonte", ["tarefa_id", "arquivo_fonte_id"], :name => "index_tarefas_arquivos_fonte_on_tarefa_id_and_arquivo_fonte_id", :unique => true
