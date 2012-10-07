@@ -1,0 +1,86 @@
+@import "helpers";
+
+*{ margin: 0px; }
+
+a{
+	color: black;
+	
+	&:visited{color:black;}
+}
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url('<%= image_path('fundo.png') %>') ;
+}
+
+$menu: 150px;
+$header: 60px;
+
+div#conteudo{
+	background-image: url('<%= image_path('fundo branco.png') %>') ;
+	margin: $header 10px 0 $menu;
+	padding: 5px 5px 15px 15px;
+	border: 1px solid #999;
+	@include borda_redonda(5px);
+	@include sombra(0px 0px 15px black);
+	
+	h1{
+		color: #BF304F;
+		font-size: 32px;
+		text-shadow: rgba(0, 0, 0, 0.2) 0px -1px 2px, white 0px 1px 0px;
+		margin: 10px 5px 10px 0px;
+	}
+}
+
+div#menu{
+	position: absolute;
+	top: $header+20px; left:0px;
+	width: $menu;
+	z-index: 100;
+	text-align: right;
+	
+	.item_menu{
+		padding: 5px 15px 5px 10px;
+		
+		a{ 
+			display: block;
+			color: #90969D;
+			text-decoration: none;
+			text-shadow: 0px -1px 1px black;
+		}
+		
+		&:hover a{
+			color: #CFCFCF;
+		}
+	}
+	
+	.item_menu_ativo{
+		@include fundo_gradiente(#3D1C22, #291113);
+		border-top: 1px solid rgba(0, 0, 0, 0.2);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		
+		a{
+			color: white;
+		}
+	}
+}
+
+div#header{
+	position: absolute;
+	top: 0px; right: 0px; left:0px;
+	height: $header;
+	
+	div#produto_escolhido{
+		color: white;
+		font-size: 22pt;
+		padding: 30px 0 0 20px;
+		text-shadow: 0px -2px 2px black;
+	}
+}
+
+.explicacao {
+	color: grey;
+}

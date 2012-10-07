@@ -1,40 +1,30 @@
 <div class='item_menu <%= @menu_ativo == 'funcionalidades' ? 'item_menu_ativo' : '' %>'>
-	<%= image_tag 'funcionalidades.png' %>
 	<%= link_to 'Funcionalidades', funcionalidades_url %>
 </div>
 
 <div class='item_menu <%= @menu_ativo == 'backlog' ? 'item_menu_ativo' : '' %>'>
-	<%= image_tag 'pb.png' %>
 	<%= link_to 'Product Backlog', controller: :backlog %>
 </div>
 
 <div class='item_menu <%= @menu_ativo == 'produtos' ? 'item_menu_ativo' : '' %>'>
-  <%= image_tag 'produtos.png' %>
   <%= link_to 'Produtos', produtos_path %>
 </div>
 
 <div class='item_menu <%= @menu_ativo == 'pacotes' ? 'item_menu_ativo' : '' %>'>
-  <%= image_tag 'pacotes.png' %>
   <%= link_to 'Pacotes', pacotes_path %>
 </div>
 
 <div class='item_menu <%= @menu_ativo == 'repositorio' ? 'item_menu_ativo' : '' %>'>
-	<%= image_tag 'repositorio.png' %>
 	<%= link_to 'Repositorio', controller: :repositorio, action: :edit %>
 </div>
 
 <div class='item_menu <%= @menu_ativo == 'categorias_arquivos_fonte' ? 'item_menu_ativo' : '' %>'>
-	<%= image_tag 'categorias_arquivos_fonte.png' %>
 	<%= link_to 'Categorias A.F.', categorias_arquivos_fonte_path %>
 </div>
 
 
-
-
-
-
 <% unless Produto.count == 1 %>
-<div id="sai_do_produto_atual">
-	<%= link_to 'Sair do produto atual', controller: :escolha_um_produto, action: :sai_do_produto_atual %>
+<div id="sai_do_produto_atual" class='item_menu'>
+	<%= link_to 'Escolher produto', controller: :escolha_um_produto, action: :sai_do_produto_atual %>
 </div>
 <% end %>

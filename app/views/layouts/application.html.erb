@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SegundoArquiteto</title>
+  <title>Arquiteto</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="pagina">
-		
-		<div id="cabecalho"><%= render 'layouts/cabecalho' %></div>
-		
-		<div id="menu"><%= render 'layouts/menu' %></div>
-
-		<div id="corpo"><%= yield %></div>
+	<div id="body">
+		<div id="header"><%= render('layouts/cabecalho') %></div>
+		<div id="menu"><%= render('layouts/menu') %></div>
+		<div id="conteudo">
+			<%= yield %>
+		</div>		
 	</div>
 </body>
 </html>

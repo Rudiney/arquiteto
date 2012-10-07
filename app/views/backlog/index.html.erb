@@ -6,13 +6,9 @@
 
 <br>
 
-<%= link_to new_historia_path do %>
-	Nova Historia <%= image_tag('nova_historia.png') %>
-<% end %>
+<%= link_to "Nova Historia", new_historia_path %>
 
-<%= link_to({controller: :lista_historias}, {style: 'float:right; margin-right:5px'}) do %>
-  Lista de histórias <%= image_tag('printer.png') %>
-<% end %>
+<%= link_to( "Lista de histórias", {controller: :lista_historias}, {style: 'float:right; margin-right:5px'})%>
 
 <br>
 
@@ -61,6 +57,4 @@
 	<b>Tamanho total do Backlog: <%= @historias.sum(&:tamanho) %></b>
 </div>
 
-<%= link_to new_historia_path do %>
-	Nova Historia	<%= image_tag('nova_historia.png') %>
-<% end %>
+<%= link_to "Nova Historia", new_historia_path %>

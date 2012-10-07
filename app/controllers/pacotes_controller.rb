@@ -1,5 +1,7 @@
 class PacotesController < ApplicationController
-
+	
+	before_filter :escolhe_item_menu
+	
 	def index
 		@pacotes = @produto_escolhido.pacotes.all
 	end
@@ -54,4 +56,11 @@ class PacotesController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
+	
+	private 
+	
+	def escolhe_item_menu
+		@menu_ativo = 'pacotes'
+	end
+	
 end
