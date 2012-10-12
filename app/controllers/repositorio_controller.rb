@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class RepositorioController < ApplicationController
-	
+	before_filter :deve_escolher_um_produto
 	before_filter :escolhe_item_menu
 	
 	def edit

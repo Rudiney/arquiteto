@@ -1,4 +1,5 @@
 class HistoriaAnexosController < ApplicationController
+	before_filter :deve_escolher_um_produto
 	
 	def novo
 		@historia = Historia.find(params[:id])

@@ -1,5 +1,4 @@
 class EscolhaUmProdutoController < ApplicationController
-	skip_before_filter :deve_escolher_um_produto
 	
 	def index
 		if session[:produto_id] # não utiliza a @produto_escolhido por causa do skip_before_filter

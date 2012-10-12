@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 class RelacaoFuncionalidadesController < ApplicationController
+	before_filter :deve_escolher_um_produto
 	
 	# espera os parâmetros :entre => funcionalidade, :e => outra_funcionalidade
 	def novo

@@ -1,5 +1,6 @@
 class TarefasController < ApplicationController
-
+	before_filter :deve_escolher_um_produto
+	
 	def nova
 		@historia = Historia.find(params[:historia_id])
 		

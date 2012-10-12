@@ -1,7 +1,10 @@
 SegundoArquiteto::Application.routes.draw do
-  resources :pacotes
-
+	
+	devise_for :user
+	resources :pacotes
 	resources :produtos, :funcionalidades, :historias, :categorias_arquivos_fonte
+
+	get 'escolha_um_produto' => 'escolha_um_produto#index', as: 'escolha_um_produto'
 	
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

@@ -1,3 +1,5 @@
+<% if user_signed_in? -%>
+
 <div class='item_menu <%= @menu_ativo == 'funcionalidades' ? 'item_menu_ativo' : '' %>'>
 	<%= link_to 'Funcionalidades', funcionalidades_url %>
 </div>
@@ -22,9 +24,22 @@
 	<%= link_to 'Categorias A.F.', categorias_arquivos_fonte_path %>
 </div>
 
+<div class='item_menu <%= @menu_ativo == 'categorias_arquivos_fonte' ? 'item_menu_ativo' : '' %>'>
+	<%= current_user.name %>
+</div>
+
+<div class='item_menu <%= @menu_ativo == 'categorias_arquivos_fonte' ? 'item_menu_ativo' : '' %>'>
+	<%= link_to 'My info', edit_user_registration_path %>
+</div>
+
+<div class='item_menu <%= @menu_ativo == 'categorias_arquivos_fonte' ? 'item_menu_ativo' : '' %>'>
+	<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+</div>
 
 <% unless Produto.count == 1 %>
 <div id="sai_do_produto_atual" class='item_menu'>
-	<%= link_to 'Escolher produto', controller: :escolha_um_produto, action: :sai_do_produto_atual %>
+	<%= link_to 'Escolher produto', escolha_um_produto_path %>
 </div>
 <% end %>
+
+<% end -%>

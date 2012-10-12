@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 class ListaHistoriasController < BacklogController
+	before_filter :deve_escolher_um_produto
 	
 	def em_pdf
 		
@@ -11,7 +12,5 @@ class ListaHistoriasController < BacklogController
 		File.open(save_path, 'wb') do |file|
 		  file << pdf
 		end
-		
-		
 	end
 end

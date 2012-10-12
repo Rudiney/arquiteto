@@ -1,4 +1,5 @@
 class BacklogController < ApplicationController
+	before_filter :deve_escolher_um_produto
 	before_filter :escolhe_item_menu
 	
 	def index

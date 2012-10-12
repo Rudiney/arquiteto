@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Arquiteto</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Arquiteto</title>
+	<%= stylesheet_link_tag    "application" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 	<div id="body">
 		<div id="header"><%= render('layouts/cabecalho') %></div>
 		<div id="menu"><%= render('layouts/menu') %></div>
 		<div id="conteudo">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+
 			<%= yield %>
 		</div>		
 	</div>

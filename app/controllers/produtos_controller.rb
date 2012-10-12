@@ -1,7 +1,5 @@
 class ProdutosController < ApplicationController
-
-	skip_before_filter :deve_escolher_um_produto
-
+	
 	before_filter :busca_produto_sessao
 	before_filter :escolhe_item_menu
 
