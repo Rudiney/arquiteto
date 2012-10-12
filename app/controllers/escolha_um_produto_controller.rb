@@ -1,13 +1,9 @@
 class EscolhaUmProdutoController < ApplicationController
 	
 	def index
-		if session[:produto_id] # não utiliza a @produto_escolhido por causa do skip_before_filter
+		if Produto.count == 1
+			escolhe_o_produto(Produto.first)
 			redirect_to(controller: :backlog)
-		else
-			if Produto.count == 1
-				escolhe_o_produto(Produto.first)
-				redirect_to(controller: :backlog)
-			end
 		end
 		@produtos = Produto.all
 	end

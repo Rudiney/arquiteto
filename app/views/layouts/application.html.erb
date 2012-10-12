@@ -8,8 +8,7 @@
 </head>
 <body>
 	<div id="body">
-		<div id="header"><%= render('layouts/cabecalho') %></div>
-		<div id="menu"><%= render('layouts/menu') %></div>
+		<div id="menu"><%= render('layouts/menu') if user_signed_in? %></div>
 		<div id="conteudo">
 			<p class="notice"><%= notice %></p>
 			<p class="alert"><%= alert %></p>
