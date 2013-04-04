@@ -1,0 +1,20 @@
+<%= form_for(@indicador) do |f| %>
+
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @indicador} %>
+	
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :tipo %><br />
+	<%= f.select :tipo, options_for_select([["Numero", "numero"], ["Duração", "duracao"], ["Data", "data"]]) %>  
+  </div>
+
+	<br/>
+  <div class="actions">
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
+

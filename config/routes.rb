@@ -2,7 +2,7 @@ SegundoArquiteto::Application.routes.draw do
 	
 	devise_for :user
 	resources :pacotes
-	resources :produtos, :funcionalidades, :historias, :categorias_arquivos_fonte
+	resources :produtos, :funcionalidades, :historias, :categorias_arquivos_fonte, :projetos, :indicadors, :indicador_projetos, :pesquisas
 
 	get 'escolha_um_produto' => 'escolha_um_produto#index', as: 'escolha_um_produto'
 	

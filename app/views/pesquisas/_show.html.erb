@@ -1,0 +1,15 @@
+<fieldset style="border-width: 2px 0 0 0;">
+<legend>Projetos</legend>
+		<table>
+			<tbody>
+			<% @projetos.each do |projeto| %>
+			  <tr>
+					<td><b>Projeto: </b><%= projeto.nome %></td>
+					<td width='16'></td>
+			    <td width='16'><%= link_to image_tag('exibir.png'), edit_pesquisa_path(projeto.id) %></td>
+			  </tr>
+			<% end %>
+			</tbody>
+		</table>
+</fieldset>
+

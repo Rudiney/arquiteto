@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012121749) do
+ActiveRecord::Schema.define(:version => 20130325235107) do
 
   create_table "arquivos_fonte", :force => true do |t|
     t.string   "caminho_completo", :null => false
@@ -75,6 +75,21 @@ ActiveRecord::Schema.define(:version => 20121012121749) do
 
   add_index "historias", ["situacao", "prioridade"], :name => "index_historias_on_situacao_and_prioridade"
 
+  create_table "indicador_projetos", :force => true do |t|
+    t.integer  "projeto_id",   :null => false
+    t.integer  "indicador_id", :null => false
+    t.string   "valor"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "indicadors", :force => true do |t|
+    t.string   "nome",       :null => false
+    t.string   "tipo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pacotes", :force => true do |t|
     t.integer  "produto_id"
     t.string   "nome"
@@ -83,12 +98,26 @@ ActiveRecord::Schema.define(:version => 20121012121749) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "pesquisas", :force => true do |t|
+    t.integer  "indicador_id", :null => false
+    t.string   "valor"
+    t.string   "operador"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "produtos", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "url_base_wiki"
     t.text     "descricao"
+  end
+
+  create_table "projetos", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "relacao_funcionalidades", :force => true do |t|
@@ -164,6 +193,9 @@ ActiveRecord::Schema.define(:version => 20121012121749) do
   add_foreign_key "funcionalidades", "produtos", :name => "funcionalidades_projeto_id_fk", :dependent => :delete
 
   add_foreign_key "historias", "produtos", :name => "historias_projeto_id_fk"
+
+  add_foreign_key "indicador_projetos", "indicadors", :name => "indicador_projetos_indicador_id_fk"
+  add_foreign_key "indicador_projetos", "projetos", :name => "indicador_projetos_projeto_id_fk"
 
   add_foreign_key "relacao_funcionalidades", "funcionalidades", :name => "relacao_funcionalidades_funcionalidade_dois_id_fk", :column => "funcionalidade_dois_id"
   add_foreign_key "relacao_funcionalidades", "funcionalidades", :name => "relacao_funcionalidades_funcionalidade_um_id_fk", :column => "funcionalidade_um_id"

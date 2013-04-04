@@ -1,0 +1,39 @@
+<fieldset style="border-width: 2px 0 0 0;">
+<legend>Novo Filtro</legend>
+<%= form_for(@pesquisa) do |f| %>
+
+	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @pesquisa} %>
+	
+  <div class="field">
+	<div class="field" style="float:left; margin-right:20px;">
+		<%= f.label :indicador %><br />
+		<%= f.select(:indicador_id, Indicador.all.map{|p| [p.nome, p.id, :tipo => p.tipo]}, {}, :onChange => "ColocaMascara(this);") %>
+	</div>
+	
+	<div class="field" style="float:left; margin-right:20px;">
+		<br />
+		<%= f.select(:operador, Pesquisa::OPERADORES.collect{|c,n| [n.to_s.humanize,c]}, {}) %>
+  	</div>
+	
+	<div class="field" style="float:left; margin-right:20px;">
+		<%= f.label :valor %><br />
+	    <%= f.text_field :valor %>
+  	</div>
+
+  </div>
+	<br />
+	<div class="actions">
+	    <%= f.submit 'Adicionar' %>
+	</div>
+<% end %>
+</fieldset>
+
+<script type="text/javascript" charset="utf-8">	
+	$('#pesquisa_indicador_id').change(function(){
+	    if($(this).find('option:selected').attr('tipo') == 'data'){
+	       $("#pesquisa_valor").mask('99/99/9999');
+	    }else{
+	       $("#pesquisa_valor").unmask();
+	    }    
+	});		
+</script>

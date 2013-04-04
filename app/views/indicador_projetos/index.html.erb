@@ -1,0 +1,37 @@
+<h1>Indicadores do Projeto</h1>
+
+<table class='lista_registros'>
+  <thead>
+		<th>#</th>
+		<th></th>
+		<th align='left' >Nome Projeto</th>
+		<th></th>
+		<th align='left' >Nome Indicador</th>
+		<th></th>
+		<th align='left' >Valor</th>
+    	<th></th><th></th><th></th><th></th>
+  </thead>
+
+	<tbody>
+		
+	<% @indicador_projetos.each do |indicador_projeto| %>
+	  <tr>
+		<% if indicador_projeto.indicador.tipo == 'data'
+	    indicador_projeto.valor = indicador_projeto.valor.split('-')[2] + '/' + indicador_projeto.valor.split('-')[1] + '/' + indicador_projeto.valor.split('-')[0] 
+    	end%>
+			<td colspan=2 align='left' style='padding-right:10px;'><%= indicador_projeto.id %></td>
+			<td colspan=2 align='left' style='padding-right:10px;'><%= indicador_projeto.projeto.nome %></td>
+			<td colspan=2 align='left' style='padding-right:10px;'><%= indicador_projeto.indicador.nome %></td>
+			<td colspan=2 align='left' style='padding-right:10px;'><%= indicador_projeto.valor %></td>
+	    <td width='16'><%= link_to image_tag('exibir.png'), indicador_projeto %></td>
+	    <td width='16'><%= link_to image_tag('editar.png'), edit_indicador_projeto_path(indicador_projeto) %></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), indicador_projeto, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo Indicador do Projeto', new_indicador_projeto_path %>

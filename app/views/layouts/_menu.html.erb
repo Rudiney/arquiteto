@@ -18,6 +18,22 @@
   <%= link_to 'Produtos', produtos_path %>
 </div>
 
+<div class='item_menu <%= @menu_ativo == 'pesquisas' ? 'item_menu_ativo' : '' %>'>
+  <%= link_to 'Pesquisa', pesquisas_path %>
+</div>
+
+<div class='item_menu <%= @menu_ativo == 'projetos' ? 'item_menu_ativo' : '' %>'>
+  <%= link_to 'Projetos', projetos_path %>
+</div>
+
+<div class='item_menu <%= @menu_ativo == 'indicadores' ? 'item_menu_ativo' : '' %>'>
+  <%= link_to 'Indicadores', indicadors_path %>
+</div>
+
+<div class='item_menu <%= @menu_ativo == 'indicadores_projetos' ? 'item_menu_ativo' : '' %>'>
+  <%= link_to 'Indicadores do Projeto', indicador_projetos_path %>
+</div>
+
 <div class='item_menu <%= @menu_ativo == 'pacotes' ? 'item_menu_ativo' : '' %>'>
   <%= link_to 'Pacotes', pacotes_path %>
 </div>

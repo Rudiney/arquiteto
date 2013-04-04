@@ -1,0 +1,27 @@
+<h1>Indicadores</h1>
+
+<table class='lista_registros'>
+  <thead>
+		<th>#</th>
+		<th>Nome</th>
+    <th></th><th></th><th></th>
+  </thead>
+
+	<tbody>
+		
+	<% @indicadors.each do |indicador| %>
+	  <tr>
+			<td><%= indicador.id %></td>
+			<td><%= indicador.nome %></td>
+	    <td width='16'><%= link_to image_tag('exibir.png'), indicador %></td>
+	    <td width='16'><%= link_to image_tag('editar.png'), edit_indicador_path(indicador) %></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), indicador, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Novo Indicador', new_indicador_path %>

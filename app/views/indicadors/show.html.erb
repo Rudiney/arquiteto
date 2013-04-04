@@ -1,0 +1,10 @@
+<h1> Indicador <%= @indicador.id %></h1>
+
+<p>
+  	<b>Nome: </b><%= @indicador.nome %> <br/>
+	<b>Tipo: </b><%= @indicador.tipo %>
+</p>
+<%= link_to 'Edit', edit_indicador_path(@indicador) %> |
+<%= link_to 'Back', indicadors_path %>
+<br/>
+<br/>

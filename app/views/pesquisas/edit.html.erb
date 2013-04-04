@@ -1,0 +1,17 @@
+<h1>Indicadores do Projeto <%= @projeto.nome%></h1>
+
+<% @indicadores.each do |indicador| %>
+<% if indicador.indicador.tipo == 'data'
+indicador.valor = indicador.valor.split('-')[2] + '/' + indicador.valor.split('-')[1] + '/' + indicador.valor.split('-')[0] 
+end%>
+  <tr>
+    <div>
+		<div><%= indicador.indicador.id %> <%= indicador.indicador.nome %> 
+	</div>
+	<div class="field">
+		<%= indicador.valor %>
+	</div>
+  <% end %>
+
+
+<%= link_to 'Voltar', pesquisas_path %>

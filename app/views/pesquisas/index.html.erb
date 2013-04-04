@@ -1,0 +1,26 @@
+<h1>Pesquisas</h1>
+<%= render 'form' %>
+<fieldset style="border-width: 2px 0 0 0;">
+<legend>Filtros</legend>
+<table>
+	<tbody>
+	<% @pesquisas.each do |pesquisa| %>
+	  <tr>
+		<% if pesquisa.indicador.tipo == 'data'
+	    pesquisa.valor = pesquisa.valor.split('-')[2] + '/' + pesquisa.valor.split('-')[1] + '/' + pesquisa.valor.split('-')[0] 
+    	end%>
+			<td><%= pesquisa.indicador.nome %></td>
+			<td width='16'></td>
+			<td><%= pesquisa.operador_nome.to_s.humanize %></td>
+			<td width='16'></td>
+			<td><%= pesquisa.valor %></td>
+			<td width='16'></td>
+	    <td width='16'><%= link_to image_tag('excluir.png'), pesquisa, confirm: 'Você tem certeza?', method: :delete %></td>
+	  </tr>
+	<% end %>
+	</tbody>
+</table>
+
+<br />
+</fieldset>
+<%= render 'show' %>

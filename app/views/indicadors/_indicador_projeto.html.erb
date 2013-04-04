@@ -1,0 +1,23 @@
+<%= form_for @indicador_projeto, :url => url_for(:controller => 'indicador_projetos', :action => 'createAll') do |f| %>
+	<input type="hidden" name="hddIdIndicador" id="hddIdIndicador" value="<%= @indicador.id %>" />
+		<% @projetos.each do |projeto| %>
+		  <tr>
+		    <div>
+				<div><%= projeto.id %> <%= projeto.nome %> 
+			</div>
+			<div class="field">
+				<input type="text" id="<%= projeto.id%>" class='com_mascara' name="<%= projeto.nome%>">
+			</div>
+		
+		  <% end %>
+		  </tr>
+			<div class="actions">
+			    <%= f.submit 'Salvar'%>
+			</div>
+<% end %>
+
+<% if @indicador.tipo == 'data' %>
+	<script type="text/javascript" charset="utf-8">
+		$('input.com_mascara').mask('99/99/9999');
+	</script>
+<% end %>
