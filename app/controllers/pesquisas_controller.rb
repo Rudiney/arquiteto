@@ -3,44 +3,57 @@ class PesquisasController < ApplicationController
 	before_filter :escolhe_item_menu
 	
 	def index
-		@pesquisa = Pesquisa.new
-		@pesquisas = Pesquisa.all
-    @projetos = Projeto.all
+    @pesquisa = Pesquisa.new
+    @pesquisas = Pesquisa.all
+    @indicadores = Indicador.joins(:pesquisas)
+    @projetos =	Projeto.all
+
     @pesquisas.each do |pesquisa|
-      if @pesquisas[0] == pesquisa
-        @projetos = Indicador.find(pesquisa.indicador_id).projetos
-      else
-        @projetos = Indicador.find(pesquisa.indicador_id).projetos
-      end
-    end
-    
-    @pesquisas.each do |pesquisa|
-      
-      if pesquisa.indicador.tipo == 'data'
-        pesquisa.valor = pesquisa.valor.split('/')[2] + '-' + pesquisa.valor.split('/')[1]+ '-' + pesquisa.valor.split('/')[0] 
-        if pesquisa.operador.to_i == 1
-            @projetos = @projetos.where('(CAST(valor AS date) = ? and indicador_id = ?)', pesquisa.valor, pesquisa.indicador) unless pesquisa.blank?
-        else
-          if pesquisa.operador.to_i == 2
-            @projetos = @projetos.where('(CAST(valor AS date) > ? and indicador_id = ?)', pesquisa.valor, pesquisa.indicador) unless pesquisa.blank?
+      @projetos.delete_if do |projeto|        
+        
+        indicador_projeto = projeto.indicador_projetos.find_by_indicador_id(pesquisa.indicador.id)
+
+        next unless indicador_projeto
+        
+        valor_indicador_projeto = indicador_projeto.valor
+        
+        valor_indicador_projeto = pesquisa.indicador.data? ? valor_indicador_projeto.to_date : valor_indicador_projeto.to_f
+        valor_filtrado = pesquisa.indicador.data? ? pesquisa.valor.to_date : pesquisa.valor.to_f
+        
+        puts "\n\n\n\n"
+        puts "valor_indicador_projeto: #{valor_indicador_projeto}"
+        puts "valor_filtrado: #{valor_filtrado}"
+        
+        case pesquisa.operador.to_i
+        when 1
+          if valor_indicador_projeto == valor_filtrado
+            puts "operador 1, nao exluir"
+            next
           else
-            @projetos = @projetos.where('(CAST(valor AS date) < ? and indicador_id = ?)', pesquisa.valor, pesquisa.indicador) unless pesquisa.blank?
+            puts "operador 1, excluir!"
+            return true
           end
+        when 2
+          if valor_indicador_projeto > valor_filtrado
+            puts "operador 2, nao exluir"
+            next
+          else
+            puts "operador 2, excluir!"
+            return true
+          end
+          
+        when 3
+          if valor_indicador_projeto < valor_filtrado
+            puts "operador 3, nao exluir"
+            next
+          else
+            puts "operador 3, excluir!"
+            return true
+          end
+          
         end
-      else
-        if pesquisa.operador.to_i == 1
-          @projetos = @projetos.where('(CAST(valor AS integer) = ? and indicador_id = ?)', pesquisa.valor.to_i, pesquisa.indicador) unless pesquisa.blank?
-        else
-          if pesquisa.operador.to_i == 2
-            @projetos = @projetos.where('(CAST(valor AS integer) > ? and indicador_id = ?)', pesquisa.valor.to_i, pesquisa.indicador) unless pesquisa.blank?
-          else
-            @projetos = @projetos.where('(CAST(valor AS integer) < ? and indicador_id = ?)', pesquisa.valor.to_i, pesquisa.indicador) unless pesquisa.blank?
-          end
-        end      
       end
-      
     end
-    #@projetos = @projetos.where({}).group("projetos.id")
 	end
 
 	def show

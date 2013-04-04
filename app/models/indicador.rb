@@ -9,4 +9,9 @@ class Indicador < ActiveRecord::Base
 	
 	has_many :projetos, :through => :indicador_projetos
 	
+	has_many :pesquisas
+	
+	def data?
+	  self.tipo == 'data'
+  end  
 end

@@ -6,9 +6,7 @@
 	<tbody>
 	<% @pesquisas.each do |pesquisa| %>
 	  <tr>
-		<% if pesquisa.indicador.tipo == 'data'
-	    pesquisa.valor = pesquisa.valor.split('-')[2] + '/' + pesquisa.valor.split('-')[1] + '/' + pesquisa.valor.split('-')[0] 
-    	end%>
+		<%  pesquisa.valor = pesquisa.valor.to_date if pesquisa.indicador.data? %>
 			<td><%= pesquisa.indicador.nome %></td>
 			<td width='16'></td>
 			<td><%= pesquisa.operador_nome.to_s.humanize %></td>
