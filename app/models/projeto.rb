@@ -9,4 +9,6 @@ class Projeto < ActiveRecord::Base
 	has_many :indicador_projetos
 	has_many :indicadors, :through => :indicador_projetos
 	
+	accepts_nested_attributes_for :indicador_projetos
+	
 end

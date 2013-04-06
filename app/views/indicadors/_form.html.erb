@@ -9,7 +9,7 @@
   
   <div class="field">
     <%= f.label :tipo %><br />
-	<%= f.select :tipo, options_for_select([["Numero", "numero"], ["Duração", "duracao"], ["Data", "data"]]) %>  
+	<%= f.select :tipo, options_for_select(Indicador::Tipos) %>  
   </div>
 
 	<br/>

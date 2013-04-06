@@ -8,6 +8,12 @@ class ProjetosController < ApplicationController
 		@modelo = Projeto
 		super
 	end
+	
+	def carrega_variaveis
+		Indicador.all.each do |indicador|
+			@projeto.indicador_projetos.build(indicador: indicador)
+		end
+	end
 		
 	private 
 	

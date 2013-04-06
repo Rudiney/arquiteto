@@ -7,6 +7,6 @@ class ProdutosControllerTest < ActionController::TestCase
 	setup do
 		sign_in(current_user)
 		escolhe_produto(produtos(:um))
-		@objeto = FactoryGirl.create(:projeto)
+		@objeto = produtos(:um)
 	end
 end

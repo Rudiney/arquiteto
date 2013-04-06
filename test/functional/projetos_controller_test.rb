@@ -9,4 +9,12 @@ class ProjetosControllerTest < ActionController::TestCase
 		escolhe_produto(produtos(:um))
 		@objeto = FactoryGirl.create(:projeto)
 	end
+	
+	test "10 - no new deve carregar todos os indicadores" do
+		indicadores = FactoryGirl.create_list(:indicador, 3)
+		
+		get(:new)
+		
+		assert_equal(3, assigns(:projeto).indicador_projetos.size)
+	end
 end

@@ -1,14 +1,21 @@
 <%= form_for(@projeto) do |f| %>
 
-	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @projeto} %>
+<%= render partial: 'padrao_cadastros/erros', locals:{registro: @projeto} %>
 	
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </div>
+	<div class="field">
+		<%= f.label :nome %><br />
+		<%= f.text_field :nome %>
+	</div>
 
-  <div class="actions">
-    <%= f.submit 'Salvar' %>
-  </div>
+	<%= f.fields_for(:indicador_projetos) do |fip| %>
+		<div class="field">
+			<%= fip.hidden_field(:indicador_id) %>
+			<%= fip.label(:valor, fip.object.indicador.nome) %><br />
+			<%= fip.text_field(:valor) %>
+		</div>	
+	<% end %>
+
+	<div class="actions">
+		<%= f.submit 'Salvar' %>
+	</div>
 <% end %>
-
