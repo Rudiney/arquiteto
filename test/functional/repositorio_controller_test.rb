@@ -3,9 +3,9 @@ require 'test_helper'
 class RepositorioControllerTest < ActionController::TestCase
 	
 	setup do
-		@p = produtos(:um)
+		sign_in(users(:rudi))
+		escolhe_produto(@p = produtos(:um))
 		@r = repositorios(:produto_um)
-		@sessao = {produto_id: @p}
 	end
 	
 	test "nao pode acessar sem um produto escolhido" do
@@ -13,7 +13,7 @@ class RepositorioControllerTest < ActionController::TestCase
 	end
 	
 	test "se o produto escolhido ja tem um repositorio, deve trazer os dados deste repositorio" do
-		get(:edit,nil,@sessao)
+		get(:edit)
 		assert_equal(@r, assigns(:repositorio))
 	end
 	
@@ -27,7 +27,7 @@ class RepositorioControllerTest < ActionController::TestCase
 			post(:update,{:repositorio => {
 				endereco: 'endereco_de_teste',
 				ultima_revisao_importada: '5'
-			}},@sessao)		
+			}})
 		end
 		
 		assert_redirected_to(action: :edit)
@@ -43,7 +43,7 @@ class RepositorioControllerTest < ActionController::TestCase
 		post(:update,{:repositorio => {
 			endereco: 'novo_endereco',
 			ultima_revisao_importada: '6'
-		}},@sessao)
+		}})
 		
 		assert_redirected_to(action: :edit)
 		assert_equal('novo_endereco', assigns(:repositorio).endereco)

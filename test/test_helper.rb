@@ -19,7 +19,12 @@ class ActiveSupport::TestCase
 
 	# Add more helper methods to be used by all tests here...
 	
+	def escolhe_produto(p)
+		@request.session[:produto_id] = p.id
+	end
+
 	def deve_ter_um_produto_escolhido_para_acessar_as_acoes(acoes)
+		@request.session[:produto_id] = nil
 		acoes.each do |acao|
 			get(acao)
 			assert_redirected_to('/escolha_um_produto',"Não deve ser possível acessar a ação #{acao} sem um produto escolhido")
@@ -34,4 +39,8 @@ class ActiveSupport::TestCase
 			registro.send("#{campo}=",valor_antigo)
 		end		
 	end
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end

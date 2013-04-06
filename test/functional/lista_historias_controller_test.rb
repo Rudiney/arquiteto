@@ -5,19 +5,18 @@ require 'test_helper'
 class ListaHistoriasControllerTest < ActionController::TestCase
 	
 	setup do
-		@p = produtos(:dois)
-		
-		@sessao = {produto_id: @p.id}
+		sign_in(users(:rudi))
+		escolhe_produto(@p = produtos(:dois))
 	end
-
+	
 	test "com um produto escolhido deve entrar na lista com todas as histórias" do
-		get('index',nil,@sessao)
+		get('index')
 		assert_response(:success)
 		assert_equal(@p.historias.size, assigns(:historias).size)
 	end
 	
 	test "deve listar somente as histórias do produto escolhido" do
-		get('index',nil,@sessao)
+		get('index')
 		assert_not_nil(assigns(:historias))
 		assigns(:historias).each do |h|
 			assert_equal(h.produto, @p)
@@ -25,6 +24,7 @@ class ListaHistoriasControllerTest < ActionController::TestCase
 	end
 	
 	test "sem um produto escolhido deve direcionar para a escolha de um produto" do
+		@request.session[:produto_id] = nil
 		get('index')
 		assert_redirected_to('/escolha_um_produto')
 	end
@@ -32,7 +32,7 @@ class ListaHistoriasControllerTest < ActionController::TestCase
 	test "filtrando por um pacote" do
 		pacote = pacotes(:dois_produto_dois)
 		
-		get('index',{filtros:{pacotes: [pacote.id]}},@sessao)
+		get('index',{filtros:{pacotes: [pacote.id]}})
 		assert_response(:success)
 		assert_not_nil(assigns(:historias))
 		
@@ -45,7 +45,7 @@ class ListaHistoriasControllerTest < ActionController::TestCase
 		pacote1 = pacotes(:quatro_produto_dois)
 		pacote2 = pacotes(:dois_produto_dois)
 		
-		get('index',{filtros:{pacotes: [pacote1.id, pacote2.id]}},@sessao)
+		get('index',{filtros:{pacotes: [pacote1.id, pacote2.id]}})
 		assert_response(:success)
 		assert_not_nil(assigns(:historias))
 		
@@ -57,7 +57,7 @@ class ListaHistoriasControllerTest < ActionController::TestCase
 		
 		filtros = {:filtros => {situacao: {10 => true}}}
 		
-		get('index',filtros,@sessao)
+		get('index',filtros)
 		
 		assert_equal(historias_na_situacao_incompleta.count, assigns(:historias).size)
 		
@@ -71,7 +71,7 @@ class ListaHistoriasControllerTest < ActionController::TestCase
 		
 		filtros = {:filtros => {situacao: {10 => true,20 => true}}}
 		
-		get('index',filtros,@sessao)
+		get('index',filtros)
 		
 		assert_equal(historias_na_situacao_incompleta.count, assigns(:historias).size)
 		

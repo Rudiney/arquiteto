@@ -5,8 +5,9 @@ require 'test_helper'
 class FuncionalidadeHistoriasControllerTest < ActionController::TestCase
 	
 	setup do
-		@p = produtos(:dois)	
-		@sessao = {produto_id: @p.id}
+		sign_in(users(:rudi))
+		
+		escolhe_produto(@p = produtos(:dois))
 		
 		@h_um = historias(:um_produto_dois)
 		@f_um = funcionalidades(:um_produto_dois)
@@ -25,23 +26,23 @@ class FuncionalidadeHistoriasControllerTest < ActionController::TestCase
 	
 	test "novo relacionamento com sucesso" do
 		assert_difference("FuncionalidadeHistoria.count", +1) do
-		  post(:novo,{entre: @h_um, e: @f_quatro},@sessao)
+		  post(:novo,{entre: @h_um, e: @f_quatro})
 		end
 	end
 	
 	test "deleta com sucesso" do
 		assert_difference("FuncionalidadeHistoria.count", -1) do
-		  post(:deleta,{id:@fh_um.id, historia:@fh_um.historia.id},@sessao)
+		  post(:deleta,{id:@fh_um.id, historia:@fh_um.historia.id})
 		end
 	end
 	
 	test "nao pode criar de produtos diferentes" do
 		assert_difference("FuncionalidadeHistoria.count", 0) do
-		  post(:novo,{entre: @h_um, e: @fum_pum},@sessao)
+		  post(:novo,{entre: @h_um, e: @fum_pum})
 		end
 		
 		assert_difference("FuncionalidadeHistoria.count", 0) do
-		  post(:novo,{entre: @hum_pum, e: @f_um},@sessao)
+		  post(:novo,{entre: @hum_pum, e: @f_um})
 		end
 	end
 

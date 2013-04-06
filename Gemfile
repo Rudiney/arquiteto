@@ -43,3 +43,5 @@ end
 group :development do
 	gem 'minitest'
 end
+
+gem 'factory_girl_rails'

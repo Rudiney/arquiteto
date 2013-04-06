@@ -3,7 +3,9 @@ require 'test_helper'
 class ProdutosControllerTest < ActionController::TestCase
 	
 	setup do
+		sign_in(users(:rudi))
 		@produto = produtos(:um)
+		#nao escolhe um produto
 	end
 
 	test "should get index" do

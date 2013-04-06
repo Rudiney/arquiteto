@@ -1,0 +1,11 @@
+rudi:
+  name: "Rudiney Altair Franceschi"
+  email: "rudi.atp@gmail.com"
+  encrypted_password: '$2a$10$VQ2lMvfU.VLjDcqhKF59g.nlGBa7B4yhUJdHqDmoyN5/DvixqrnrO'
+  sign_in_count: 1
+  current_sign_in_at: '2013-04-06 19:27:14'
+  last_sign_in_at: '2013-04-06 19:27:14'
+  current_sign_in_ip: "127.0.0.1"
+  last_sign_in_ip: "127.0.0.1"
+  confirmed_at: '2013-04-05 19:27:14'
+  confirmation_sent_at: '2013-04-05 19:25:14'

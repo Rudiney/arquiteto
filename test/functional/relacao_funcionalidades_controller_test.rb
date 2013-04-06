@@ -5,7 +5,8 @@ require 'test_helper'
 class RelacaoFuncionalidadesControllerTest < ActionController::TestCase
 	
 	setup do
-		@p = produtos(:um)
+		sign_in(users(:rudi))
+		escolhe_produto(@p = produtos(:um))
 		
 		@fum_pum     = funcionalidades(:um_produto_um)
 		@fdois_pum   = funcionalidades(:dois_produto_um)
@@ -15,8 +16,6 @@ class RelacaoFuncionalidadesControllerTest < ActionController::TestCase
 		
 		@r_fum_fcinco_pum   = relacao_funcionalidades(:entre_um_e_cinco_produto_um)
 		@r_fum_fcinco_pdois = relacao_funcionalidades(:entre_um_e_cinco_produto_dois)
-		
-		@sessao = {produto_id: @p.id}
 	end
 	
 	test "as ações não podem ser acessadas sem um produto escolhido" do
@@ -25,11 +24,11 @@ class RelacaoFuncionalidadesControllerTest < ActionController::TestCase
 	
 	test "adicionar com sucesso" do
 		assert_difference("RelacaoFuncionalidades.count", +1) do
-		  post(:novo,{entre: @fum_pum, e: @fdois_pum, relacao: :forte},@sessao)
+		  post(:novo,{entre: @fum_pum, e: @fdois_pum, relacao: :forte})
 		end
 
 		assert_difference("RelacaoFuncionalidades.count", +1) do
-		  post(:novo,{entre: @fum_pdois, e: @fdois_pdois, relacao: :fraca},@sessao)
+		  post(:novo,{entre: @fum_pdois, e: @fdois_pdois, relacao: :fraca})
 		end
 
 	end
@@ -37,23 +36,23 @@ class RelacaoFuncionalidadesControllerTest < ActionController::TestCase
 	test "delete com sucesso" do
 		
 		assert_difference("RelacaoFuncionalidades.count", -1) do
-		  post(:deleta,{id: @r_fum_fcinco_pum, funcionalidade: @fum_pum.id},@sessao)
+		  post(:deleta,{id: @r_fum_fcinco_pum, funcionalidade: @fum_pum.id})
 		end
 
 		assert_difference("RelacaoFuncionalidades.count", -1) do
-		  post(:deleta,{id: @r_fum_fcinco_pdois, funcionalidade: @fum_pum.id},@sessao)
+		  post(:deleta,{id: @r_fum_fcinco_pdois, funcionalidade: @fum_pum.id})
 		end
 		
 	end
 	
 	test "Não pode adicionar relacioamento entre funcionalidaes de produtos diferentes" do
 		assert_difference("RelacaoFuncionalidades.count", 0) do
-		  post(:novo,{entre: @fum_pum, e: @fdois_pdois, relacao: :forte},@sessao)
+		  post(:novo,{entre: @fum_pum, e: @fdois_pdois, relacao: :forte})
 		end
 	end
 
 	test "mapa de impacto" do
-		get(:mapa_impacto,nil,@sessao)
+		get(:mapa_impacto)
 		assert_response(:success)
 		
 		
