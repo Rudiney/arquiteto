@@ -11,6 +11,7 @@ class ProjetosController < ApplicationController
 	
 	def carrega_variaveis
 		Indicador.all.each do |indicador|
+			next if @projeto.indicadors.include?(indicador)
 			@projeto.indicador_projetos.build(indicador: indicador)
 		end
 	end
