@@ -2,7 +2,9 @@
 
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
+
 require 'rails/test_help'
+require 'functional/crud_controller_test'
 
 class ActiveSupport::TestCase
 
@@ -38,6 +40,41 @@ class ActiveSupport::TestCase
 			assert(!registro.save, "não deveria salvar com o campo #{campo} em branco!")
 			registro.send("#{campo}=",valor_antigo)
 		end		
+	end
+	
+	def sem_sessao_nao_acessa(method,action,params={})
+		sign_out(current_user)
+		send(method, action, params)
+		assert_redirected_to(new_user_session_path, "não deveria acessar a ação #{action}")
+	end
+	
+	def objeto
+		raise "Preciso de um @objeto para testar" unless @objeto
+		@objeto
+	end
+	
+	def class_name
+		objeto.class.name
+	end
+	
+	def nome_plural
+		@nome_plural ||= class_name.tableize.to_sym
+	end
+	
+	def nome_singular
+		@nome_singular ||= class_name.underscore.to_sym
+	end
+	
+	def current_user
+		users(:rudi)
+	end
+	
+	def create_params
+		{nome_singular =>  objeto.accessible_attributes}
+	end
+	
+	def update_params
+		{id: objeto, nome_singular => objeto.accessible_attributes}
 	end
 end
 
