@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProdutosControllerTest < ActionController::TestCase
+class ProjetosControllerTest < ActionController::TestCase
 	
 	include CrudControllerTest
 	
