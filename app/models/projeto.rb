@@ -2,7 +2,7 @@
 
 class Projeto < ActiveRecord::Base
 	
-	attr_accessible :nome
+	attr_accessible :nome, :indicador_projetos_attributes
 	
 	validates :nome, :presence => true
 	
