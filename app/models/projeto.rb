@@ -6,7 +6,7 @@ class Projeto < ActiveRecord::Base
 	
 	validates :nome, :presence => true
 	
-	has_many :indicador_projetos
+	has_many :indicador_projetos, dependent: :destroy
 	has_many :indicadors, :through => :indicador_projetos
 	
 	accepts_nested_attributes_for :indicador_projetos

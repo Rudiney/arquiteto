@@ -2,11 +2,11 @@
 <legend>Projetos</legend>
 		<table>
 			<tbody>
-			<% @projetos.each do |projeto| %>
+			<% @analise.projetos.each do |projeto| %>
 			  <tr>
 					<td><b>Projeto: </b><%= projeto.nome %></td>
 					<td width='16'></td>
-			    <td width='16'><%= link_to image_tag('exibir.png'), edit_pesquisa_path(projeto.id) %></td>
+			    <td width='16'><%= link_to image_tag('exibir.png'), projeto %></td>
 			  </tr>
 			<% end %>
 			</tbody>

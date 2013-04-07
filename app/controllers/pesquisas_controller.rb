@@ -3,57 +3,9 @@ class PesquisasController < ApplicationController
 	before_filter :escolhe_item_menu
 	
 	def index
-    @pesquisa = Pesquisa.new
-    @pesquisas = Pesquisa.all
-    @indicadores = Indicador.joins(:pesquisas)
-    @projetos =	Projeto.all
-
-    @pesquisas.each do |pesquisa|
-      @projetos.delete_if do |projeto|        
-        
-        indicador_projeto = projeto.indicador_projetos.find_by_indicador_id(pesquisa.indicador.id)
-
-        next unless indicador_projeto
-        
-        valor_indicador_projeto = indicador_projeto.valor
-        
-        valor_indicador_projeto = pesquisa.indicador.data? ? valor_indicador_projeto.to_date : valor_indicador_projeto.to_f
-        valor_filtrado = pesquisa.indicador.data? ? pesquisa.valor.to_date : pesquisa.valor.to_f
-        
-        puts "\n\n\n\n"
-        puts "valor_indicador_projeto: #{valor_indicador_projeto}"
-        puts "valor_filtrado: #{valor_filtrado}"
-        
-        case pesquisa.operador.to_i
-        when 1
-          if valor_indicador_projeto == valor_filtrado
-            puts "operador 1, nao exluir"
-            next
-          else
-            puts "operador 1, excluir!"
-            return true
-          end
-        when 2
-          if valor_indicador_projeto > valor_filtrado
-            puts "operador 2, nao exluir"
-            next
-          else
-            puts "operador 2, excluir!"
-            return true
-          end
-          
-        when 3
-          if valor_indicador_projeto < valor_filtrado
-            puts "operador 3, nao exluir"
-            next
-          else
-            puts "operador 3, excluir!"
-            return true
-          end
-          
-        end
-      end
-    end
+		@pesquisa = Pesquisa.new
+		@pesquisas = Pesquisa.all
+		@analise = AnaliseProjetos.new
 	end
 
 	def show
@@ -71,7 +23,7 @@ class PesquisasController < ApplicationController
 
 	def create
 	  
-	  params[:pesquisa][:operador] = params[:pesquisa][:operador].to_i
+		params[:pesquisa][:operador] = params[:pesquisa][:operador].to_i
 	  
 		@pesquisa = Pesquisa.new(params[:pesquisa])
 		
