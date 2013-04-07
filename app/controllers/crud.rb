@@ -12,9 +12,7 @@ module Crud
 	end
 	
 	def show
-		busca_lista
-		params[:selecionar] = params[:id]
-		render(action: 'index')
+		busca_registro()
 	end
 	
 	def new
