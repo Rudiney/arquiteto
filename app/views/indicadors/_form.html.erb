@@ -11,7 +11,18 @@
 		<%= f.label :tipo %><br />
 		<%= f.select :tipo, Indicador::TIPOS %>
 	</div>
-
+	
+	<fieldset id="projetos" class="">
+		<legend>Projetos</legend>
+		<%= f.fields_for(:indicador_projetos) do |fip| %>
+			<div class="field">
+				<%= fip.hidden_field(:projeto_id) %>
+				<%= fip.label(:valor, fip.object.projeto.nome) %><br />
+				<%= fip.text_field(:valor) %>
+			</div>	
+		<% end %>
+	</fieldset>
+	
 	<br/>
 	
 	<div class="actions">
