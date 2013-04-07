@@ -2,19 +2,20 @@
 
 	<%= render partial: 'padrao_cadastros/erros', locals:{registro: @indicador} %>
 	
-  <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </div>
+	<div class="field">
+		<%= f.label :nome %><br />
+		<%= f.text_field :nome %>
+	</div>
   
-  <div class="field">
-    <%= f.label :tipo %><br />
-	<%= f.select :tipo, options_for_select(Indicador::Tipos) %>  
-  </div>
+	<div class="field">
+		<%= f.label :tipo %><br />
+		<%= f.select :tipo, Indicador::TIPOS %>
+	</div>
 
 	<br/>
-  <div class="actions">
-    <%= f.submit 'Salvar' %>
-  </div>
+	
+	<div class="actions">
+		<%= f.submit 'Salvar' %>
+	</div>
 <% end %>
 

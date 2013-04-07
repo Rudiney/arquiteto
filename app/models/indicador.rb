@@ -8,7 +8,7 @@ class Indicador < ActiveRecord::Base
 	
 	attr_accessible :tipo, :nome
 	
-	has_many :indicador_projetos
+	has_many :indicador_projetos, dependent: :destroy
 	has_many :projetos, :through => :indicador_projetos
 	
 	has_many :pesquisas
