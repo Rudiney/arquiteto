@@ -9,6 +9,13 @@ class IndicadorsController < ApplicationController
 		super
 	end
 		
+	def carrega_variaveis
+		Projeto.all.each do |projeto|
+			next if @indicador.projetos.include?(projeto)
+			@indicador.indicador_projetos.build(projeto: projeto)
+		end
+	end
+	
 	private 
 	
 	def escolhe_item_menu
