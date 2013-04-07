@@ -10,4 +10,6 @@ class IndicadorProjeto < ActiveRecord::Base
 	
 	belongs_to :indicador
 	
+	validates :indicador_id, uniqueness: {scope: :projeto_id}
+	
 end

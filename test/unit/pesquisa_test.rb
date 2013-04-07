@@ -15,14 +15,14 @@ class PesquisaTest < ActiveSupport::TestCase
 		assert_equal(12.34, @pesquisa.valor_convertido)
 	end
 	
-	test "00 - #valor_convertido para duração " do
+	test "01 - #valor_convertido para duração " do
 		@pesquisa.indicador = FactoryGirl.build(:indicador, tipo: 'duracao')
 		@pesquisa.valor = '12.34'
 		
 		assert_equal(12.34, @pesquisa.valor_convertido)
 	end
 	
-	test "00 - #valor_convertido para data" do
+	test "02 - #valor_convertido para data" do
 		@pesquisa.indicador = FactoryGirl.build(:indicador, tipo: 'data')
 		@pesquisa.valor = '31/12/2014'
 		
